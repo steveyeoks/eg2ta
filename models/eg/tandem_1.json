@@ -1,0 +1,85 @@
+{
+ "name": "tandem_1",
+ "variables": {
+  "q1": {
+   "init": 0,
+   "bound": 5
+  },
+  "a1": {
+   "init": 1,
+   "bound": 1
+  }
+ },
+ "vertices": {
+  "Run": [],
+  "Arrive": [
+   "q1 += 1"
+  ],
+  "Start1": [
+   "q1 -= 1",
+   "a1 -= 1"
+  ],
+  "Finish1": [
+   "a1 += 1"
+  ]
+ },
+ "edges": [
+  {
+   "id": "e0",
+   "from": "Run",
+   "to": "Arrive",
+   "delay": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "e2",
+   "from": "Arrive",
+   "to": "Arrive",
+   "delay": [
+    4,
+    6
+   ]
+  },
+  {
+   "id": "e3",
+   "from": "Arrive",
+   "to": "Start1",
+   "delay": [
+    0,
+    0
+   ],
+   "guard": [
+    "a1 >= 1"
+   ]
+  },
+  {
+   "id": "e4",
+   "from": "Start1",
+   "to": "Finish1",
+   "delay": [
+    3,
+    5
+   ]
+  },
+  {
+   "id": "e5",
+   "from": "Finish1",
+   "to": "Start1",
+   "delay": [
+    0,
+    0
+   ],
+   "guard": [
+    "q1 >= 1",
+    "a1 >= 1"
+   ]
+  }
+ ],
+ "branches": {},
+ "priority": [
+  "e3",
+  "e5"
+ ]
+}

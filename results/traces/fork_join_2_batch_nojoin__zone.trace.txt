@@ -1,0 +1,16 @@
+Options for the verification:
+  Generating some trace
+  Search order is breadth first
+  Using conservative space optimisation
+  Seed is 1790239554
+  State space representation uses minimal constraint systems with future testing
+  Using HashMap + Compress integers for discrete state storage
+[2K
+Verifying formula 1 at /Users/syks/simasm/experiments/project_3/eg2ta/queries/fork_join_2_batch_nojoin__zone.q:2
+[2K -- Formula is satisfied.
+ -- States stored : 156 states
+ -- States explored : 182 states
+ -- CPU user time used : 1 ms
+ -- Virtual memory used : 67964184 KiB
+ -- Resident memory used : 20820 KiB
+

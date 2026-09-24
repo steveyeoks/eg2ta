@@ -1,0 +1,2 @@
+// open model: the FEL never empties
+E<> (SU.wait && W_e2.idle && W_e3.idle && W_e4.idle && W_e5.idle && W_e6.idle && W_e7.idle && W_e8.idle && W_e0.done)

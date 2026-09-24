@@ -1,0 +1,293 @@
+{
+ "name": "tandem_5",
+ "variables": {
+  "q1": {
+   "init": 0,
+   "bound": 5
+  },
+  "a1": {
+   "init": 1,
+   "bound": 1
+  },
+  "q2": {
+   "init": 0,
+   "bound": 5
+  },
+  "a2": {
+   "init": 1,
+   "bound": 1
+  },
+  "q3": {
+   "init": 0,
+   "bound": 5
+  },
+  "a3": {
+   "init": 1,
+   "bound": 1
+  },
+  "q4": {
+   "init": 0,
+   "bound": 5
+  },
+  "a4": {
+   "init": 1,
+   "bound": 1
+  },
+  "q5": {
+   "init": 0,
+   "bound": 5
+  },
+  "a5": {
+   "init": 1,
+   "bound": 1
+  }
+ },
+ "vertices": {
+  "Run": [],
+  "Arrive": [
+   "q1 += 1"
+  ],
+  "Start1": [
+   "q1 -= 1",
+   "a1 -= 1"
+  ],
+  "Finish1": [
+   "a1 += 1",
+   "q2 += 1"
+  ],
+  "Start2": [
+   "q2 -= 1",
+   "a2 -= 1"
+  ],
+  "Finish2": [
+   "a2 += 1",
+   "q3 += 1"
+  ],
+  "Start3": [
+   "q3 -= 1",
+   "a3 -= 1"
+  ],
+  "Finish3": [
+   "a3 += 1",
+   "q4 += 1"
+  ],
+  "Start4": [
+   "q4 -= 1",
+   "a4 -= 1"
+  ],
+  "Finish4": [
+   "a4 += 1",
+   "q5 += 1"
+  ],
+  "Start5": [
+   "q5 -= 1",
+   "a5 -= 1"
+  ],
+  "Finish5": [
+   "a5 += 1"
+  ]
+ },
+ "edges": [
+  {
+   "id": "e0",
+   "from": "Run",
+   "to": "Arrive",
+   "delay": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "e2",
+   "from": "Arrive",
+   "to": "Arrive",
+   "delay": [
+    4,
+    6
+   ]
+  },
+  {
+   "id": "e3",
+   "from": "Arrive",
+   "to": "Start1",
+   "delay": [
+    0,
+    0
+   ],
+   "guard": [
+    "a1 >= 1"
+   ]
+  },
+  {
+   "id": "e4",
+   "from": "Start1",
+   "to": "Finish1",
+   "delay": [
+    3,
+    5
+   ]
+  },
+  {
+   "id": "e5",
+   "from": "Finish1",
+   "to": "Start1",
+   "delay": [
+    0,
+    0
+   ],
+   "guard": [
+    "q1 >= 1",
+    "a1 >= 1"
+   ]
+  },
+  {
+   "id": "e6",
+   "from": "Finish1",
+   "to": "Start2",
+   "delay": [
+    0,
+    0
+   ],
+   "guard": [
+    "a2 >= 1"
+   ]
+  },
+  {
+   "id": "e7",
+   "from": "Start2",
+   "to": "Finish2",
+   "delay": [
+    3,
+    5
+   ]
+  },
+  {
+   "id": "e8",
+   "from": "Finish2",
+   "to": "Start2",
+   "delay": [
+    0,
+    0
+   ],
+   "guard": [
+    "q2 >= 1",
+    "a2 >= 1"
+   ]
+  },
+  {
+   "id": "e9",
+   "from": "Finish2",
+   "to": "Start3",
+   "delay": [
+    0,
+    0
+   ],
+   "guard": [
+    "a3 >= 1"
+   ]
+  },
+  {
+   "id": "e10",
+   "from": "Start3",
+   "to": "Finish3",
+   "delay": [
+    3,
+    5
+   ]
+  },
+  {
+   "id": "e11",
+   "from": "Finish3",
+   "to": "Start3",
+   "delay": [
+    0,
+    0
+   ],
+   "guard": [
+    "q3 >= 1",
+    "a3 >= 1"
+   ]
+  },
+  {
+   "id": "e12",
+   "from": "Finish3",
+   "to": "Start4",
+   "delay": [
+    0,
+    0
+   ],
+   "guard": [
+    "a4 >= 1"
+   ]
+  },
+  {
+   "id": "e13",
+   "from": "Start4",
+   "to": "Finish4",
+   "delay": [
+    3,
+    5
+   ]
+  },
+  {
+   "id": "e14",
+   "from": "Finish4",
+   "to": "Start4",
+   "delay": [
+    0,
+    0
+   ],
+   "guard": [
+    "q4 >= 1",
+    "a4 >= 1"
+   ]
+  },
+  {
+   "id": "e15",
+   "from": "Finish4",
+   "to": "Start5",
+   "delay": [
+    0,
+    0
+   ],
+   "guard": [
+    "a5 >= 1"
+   ]
+  },
+  {
+   "id": "e16",
+   "from": "Start5",
+   "to": "Finish5",
+   "delay": [
+    3,
+    5
+   ]
+  },
+  {
+   "id": "e17",
+   "from": "Finish5",
+   "to": "Start5",
+   "delay": [
+    0,
+    0
+   ],
+   "guard": [
+    "q5 >= 1",
+    "a5 >= 1"
+   ]
+  }
+ ],
+ "branches": {},
+ "priority": [
+  "e3",
+  "e5",
+  "e6",
+  "e8",
+  "e9",
+  "e11",
+  "e12",
+  "e14",
+  "e15",
+  "e17"
+ ]
+}

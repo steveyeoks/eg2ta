@@ -1,0 +1,220 @@
+Options for the verification:
+  Generating some trace
+  Search order is breadth first
+  Using conservative space optimisation
+  Seed is 1790252939
+  State space representation uses minimal constraint systems with future testing
+  Using HashMap + Compress integers for discrete state storage
+[2K
+Verifying formula 1 at /Users/syks/simasm/experiments/project_3/eg2ta/queries/tandem_2_batch_norestart__nic.q:2
+[2K -- Formula is NOT satisfied.
+ -- States stored : 37 states
+ -- States explored : 58 states
+ -- CPU user time used : 1 ms
+ -- Virtual memory used : 67963168 KiB
+ -- Resident memory used : 21040 KiB
+ -- Showing witness trace:
+
+State:
+( W_e4.idle W_e5.idle W_e7.idle W_e8.idle W_e9.idle W_e0a.active W_e0b.active W_e0c.active SU.wait )
+q1=0 a1=1 q2=0 a2=1 dep=0
+W_e4.x<=0 and W_e4.x-W_e5.x<=0 and W_e4.x-W_e7.x<=0 and W_e4.x-W_e8.x<=0 and W_e4.x-W_e9.x<=0 and W_e4.x-W_e0a.x<=0 and W_e4.x-W_e0b.x<=0 and W_e4.x-W_e0c.x<=0 and W_e5.x<=0 and W_e5.x-W_e4.x<=0 and W_e5.x-W_e7.x<=0 and W_e5.x-W_e8.x<=0 and W_e5.x-W_e9.x<=0 and W_e5.x-W_e0a.x<=0 and W_e5.x-W_e0b.x<=0 and W_e5.x-W_e0c.x<=0 and W_e7.x<=0 and W_e7.x-W_e4.x<=0 and W_e7.x-W_e5.x<=0 and W_e7.x-W_e8.x<=0 and W_e7.x-W_e9.x<=0 and W_e7.x-W_e0a.x<=0 and W_e7.x-W_e0b.x<=0 and W_e7.x-W_e0c.x<=0 and W_e8.x<=0 and W_e8.x-W_e4.x<=0 and W_e8.x-W_e5.x<=0 and W_e8.x-W_e7.x<=0 and W_e8.x-W_e9.x<=0 and W_e8.x-W_e0a.x<=0 and W_e8.x-W_e0b.x<=0 and W_e8.x-W_e0c.x<=0 and W_e9.x<=0 and W_e9.x-W_e4.x<=0 and W_e9.x-W_e5.x<=0 and W_e9.x-W_e7.x<=0 and W_e9.x-W_e8.x<=0 and W_e9.x-W_e0a.x<=0 and W_e9.x-W_e0b.x<=0 and W_e9.x-W_e0c.x<=0 and W_e0a.x<=0 and W_e0a.x-W_e4.x<=0 and W_e0a.x-W_e5.x<=0 and W_e0a.x-W_e7.x<=0 and W_e0a.x-W_e8.x<=0 and W_e0a.x-W_e9.x<=0 and W_e0a.x-W_e0b.x<=0 and W_e0a.x-W_e0c.x<=0 and W_e0b.x<=0 and W_e0b.x-W_e4.x<=0 and W_e0b.x-W_e5.x<=0 and W_e0b.x-W_e7.x<=0 and W_e0b.x-W_e8.x<=0 and W_e0b.x-W_e9.x<=0 and W_e0b.x-W_e0a.x<=0 and W_e0b.x-W_e0c.x<=0 and W_e0c.x<=0 and W_e0c.x-W_e4.x<=0 and W_e0c.x-W_e5.x<=0 and W_e0c.x-W_e7.x<=0 and W_e0c.x-W_e8.x<=0 and W_e0c.x-W_e9.x<=0 and W_e0c.x-W_e0a.x<=0 and W_e0c.x-W_e0b.x<=0
+
+Transition:
+  W_e0a.active->W_e0a.done { x >= 0, fire_e0a!, 1 }
+  SU.wait->SU.apply_Arrive_0 { 1, fire_e0a?, q1 := q1 + 1 > 5 ? 5 : q1 + 1 }
+
+State:
+( W_e4.idle W_e5.idle W_e7.idle W_e8.idle W_e9.idle W_e0a.done W_e0b.active W_e0c.active SU.apply_Arrive_0 )
+q1=1 a1=1 q2=0 a2=1 dep=0
+W_e4.x<=0 and W_e4.x-W_e5.x<=0 and W_e4.x-W_e7.x<=0 and W_e4.x-W_e8.x<=0 and W_e4.x-W_e9.x<=0 and W_e4.x-W_e0a.x<=0 and W_e4.x-W_e0b.x<=0 and W_e4.x-W_e0c.x<=0 and W_e5.x<=0 and W_e5.x-W_e4.x<=0 and W_e5.x-W_e7.x<=0 and W_e5.x-W_e8.x<=0 and W_e5.x-W_e9.x<=0 and W_e5.x-W_e0a.x<=0 and W_e5.x-W_e0b.x<=0 and W_e5.x-W_e0c.x<=0 and W_e7.x<=0 and W_e7.x-W_e4.x<=0 and W_e7.x-W_e5.x<=0 and W_e7.x-W_e8.x<=0 and W_e7.x-W_e9.x<=0 and W_e7.x-W_e0a.x<=0 and W_e7.x-W_e0b.x<=0 and W_e7.x-W_e0c.x<=0 and W_e8.x<=0 and W_e8.x-W_e4.x<=0 and W_e8.x-W_e5.x<=0 and W_e8.x-W_e7.x<=0 and W_e8.x-W_e9.x<=0 and W_e8.x-W_e0a.x<=0 and W_e8.x-W_e0b.x<=0 and W_e8.x-W_e0c.x<=0 and W_e9.x<=0 and W_e9.x-W_e4.x<=0 and W_e9.x-W_e5.x<=0 and W_e9.x-W_e7.x<=0 and W_e9.x-W_e8.x<=0 and W_e9.x-W_e0a.x<=0 and W_e9.x-W_e0b.x<=0 and W_e9.x-W_e0c.x<=0 and W_e0a.x<=0 and W_e0a.x-W_e4.x<=0 and W_e0a.x-W_e5.x<=0 and W_e0a.x-W_e7.x<=0 and W_e0a.x-W_e8.x<=0 and W_e0a.x-W_e9.x<=0 and W_e0a.x-W_e0b.x<=0 and W_e0a.x-W_e0c.x<=0 and W_e0b.x<=0 and W_e0b.x-W_e4.x<=0 and W_e0b.x-W_e5.x<=0 and W_e0b.x-W_e7.x<=0 and W_e0b.x-W_e8.x<=0 and W_e0b.x-W_e9.x<=0 and W_e0b.x-W_e0a.x<=0 and W_e0b.x-W_e0c.x<=0 and W_e0c.x<=0 and W_e0c.x-W_e4.x<=0 and W_e0c.x-W_e5.x<=0 and W_e0c.x-W_e7.x<=0 and W_e0c.x-W_e8.x<=0 and W_e0c.x-W_e9.x<=0 and W_e0c.x-W_e0a.x<=0 and W_e0c.x-W_e0b.x<=0
+
+Transition:
+  SU.apply_Arrive_0->SU.wait { 1, sched_e4!, 1 }
+  W_e4.idle->W_e4.active { a1 >= 1, sched_e4?, x := 0 }
+
+State:
+( W_e4.active W_e5.idle W_e7.idle W_e8.idle W_e9.idle W_e0a.done W_e0b.active W_e0c.active SU.wait )
+q1=1 a1=1 q2=0 a2=1 dep=0
+W_e4.x<=0 and W_e4.x-W_e5.x<=0 and W_e4.x-W_e7.x<=0 and W_e4.x-W_e8.x<=0 and W_e4.x-W_e9.x<=0 and W_e4.x-W_e0a.x<=0 and W_e4.x-W_e0b.x<=0 and W_e4.x-W_e0c.x<=0 and W_e5.x<=0 and W_e5.x-W_e4.x<=0 and W_e5.x-W_e7.x<=0 and W_e5.x-W_e8.x<=0 and W_e5.x-W_e9.x<=0 and W_e5.x-W_e0a.x<=0 and W_e5.x-W_e0b.x<=0 and W_e5.x-W_e0c.x<=0 and W_e7.x<=0 and W_e7.x-W_e4.x<=0 and W_e7.x-W_e5.x<=0 and W_e7.x-W_e8.x<=0 and W_e7.x-W_e9.x<=0 and W_e7.x-W_e0a.x<=0 and W_e7.x-W_e0b.x<=0 and W_e7.x-W_e0c.x<=0 and W_e8.x<=0 and W_e8.x-W_e4.x<=0 and W_e8.x-W_e5.x<=0 and W_e8.x-W_e7.x<=0 and W_e8.x-W_e9.x<=0 and W_e8.x-W_e0a.x<=0 and W_e8.x-W_e0b.x<=0 and W_e8.x-W_e0c.x<=0 and W_e9.x<=0 and W_e9.x-W_e4.x<=0 and W_e9.x-W_e5.x<=0 and W_e9.x-W_e7.x<=0 and W_e9.x-W_e8.x<=0 and W_e9.x-W_e0a.x<=0 and W_e9.x-W_e0b.x<=0 and W_e9.x-W_e0c.x<=0 and W_e0a.x<=0 and W_e0a.x-W_e4.x<=0 and W_e0a.x-W_e5.x<=0 and W_e0a.x-W_e7.x<=0 and W_e0a.x-W_e8.x<=0 and W_e0a.x-W_e9.x<=0 and W_e0a.x-W_e0b.x<=0 and W_e0a.x-W_e0c.x<=0 and W_e0b.x<=0 and W_e0b.x-W_e4.x<=0 and W_e0b.x-W_e5.x<=0 and W_e0b.x-W_e7.x<=0 and W_e0b.x-W_e8.x<=0 and W_e0b.x-W_e9.x<=0 and W_e0b.x-W_e0a.x<=0 and W_e0b.x-W_e0c.x<=0 and W_e0c.x<=0 and W_e0c.x-W_e4.x<=0 and W_e0c.x-W_e5.x<=0 and W_e0c.x-W_e7.x<=0 and W_e0c.x-W_e8.x<=0 and W_e0c.x-W_e9.x<=0 and W_e0c.x-W_e0a.x<=0 and W_e0c.x-W_e0b.x<=0
+
+Transition:
+  W_e4.active->W_e4.idle { x >= 0, fire_e4!, 1 }
+  SU.wait->SU.apply_Start1_0 { 1, fire_e4?, q1 := q1 - 1, a1 := a1 - 1 }
+
+State:
+( W_e4.idle W_e5.idle W_e7.idle W_e8.idle W_e9.idle W_e0a.done W_e0b.active W_e0c.active SU.apply_Start1_0 )
+q1=0 a1=0 q2=0 a2=1 dep=0
+W_e4.x<=0 and W_e4.x-W_e5.x<=0 and W_e4.x-W_e7.x<=0 and W_e4.x-W_e8.x<=0 and W_e4.x-W_e9.x<=0 and W_e4.x-W_e0a.x<=0 and W_e4.x-W_e0b.x<=0 and W_e4.x-W_e0c.x<=0 and W_e5.x<=0 and W_e5.x-W_e4.x<=0 and W_e5.x-W_e7.x<=0 and W_e5.x-W_e8.x<=0 and W_e5.x-W_e9.x<=0 and W_e5.x-W_e0a.x<=0 and W_e5.x-W_e0b.x<=0 and W_e5.x-W_e0c.x<=0 and W_e7.x<=0 and W_e7.x-W_e4.x<=0 and W_e7.x-W_e5.x<=0 and W_e7.x-W_e8.x<=0 and W_e7.x-W_e9.x<=0 and W_e7.x-W_e0a.x<=0 and W_e7.x-W_e0b.x<=0 and W_e7.x-W_e0c.x<=0 and W_e8.x<=0 and W_e8.x-W_e4.x<=0 and W_e8.x-W_e5.x<=0 and W_e8.x-W_e7.x<=0 and W_e8.x-W_e9.x<=0 and W_e8.x-W_e0a.x<=0 and W_e8.x-W_e0b.x<=0 and W_e8.x-W_e0c.x<=0 and W_e9.x<=0 and W_e9.x-W_e4.x<=0 and W_e9.x-W_e5.x<=0 and W_e9.x-W_e7.x<=0 and W_e9.x-W_e8.x<=0 and W_e9.x-W_e0a.x<=0 and W_e9.x-W_e0b.x<=0 and W_e9.x-W_e0c.x<=0 and W_e0a.x<=0 and W_e0a.x-W_e4.x<=0 and W_e0a.x-W_e5.x<=0 and W_e0a.x-W_e7.x<=0 and W_e0a.x-W_e8.x<=0 and W_e0a.x-W_e9.x<=0 and W_e0a.x-W_e0b.x<=0 and W_e0a.x-W_e0c.x<=0 and W_e0b.x<=0 and W_e0b.x-W_e4.x<=0 and W_e0b.x-W_e5.x<=0 and W_e0b.x-W_e7.x<=0 and W_e0b.x-W_e8.x<=0 and W_e0b.x-W_e9.x<=0 and W_e0b.x-W_e0a.x<=0 and W_e0b.x-W_e0c.x<=0 and W_e0c.x<=0 and W_e0c.x-W_e4.x<=0 and W_e0c.x-W_e5.x<=0 and W_e0c.x-W_e7.x<=0 and W_e0c.x-W_e8.x<=0 and W_e0c.x-W_e9.x<=0 and W_e0c.x-W_e0a.x<=0 and W_e0c.x-W_e0b.x<=0
+
+Transition:
+  SU.apply_Start1_0->SU.wait { 1, sched_e5!, 1 }
+  W_e5.idle->W_e5.active { 1, sched_e5?, x := 0 }
+
+State:
+( W_e4.idle W_e5.active W_e7.idle W_e8.idle W_e9.idle W_e0a.done W_e0b.active W_e0c.active SU.wait )
+q1=0 a1=0 q2=0 a2=1 dep=0
+W_e4.x<=4 and W_e4.x-W_e5.x<=0 and W_e4.x-W_e7.x<=0 and W_e4.x-W_e8.x<=0 and W_e4.x-W_e9.x<=0 and W_e4.x-W_e0a.x<=0 and W_e4.x-W_e0b.x<=0 and W_e4.x-W_e0c.x<=0 and W_e5.x<=4 and W_e5.x-W_e4.x<=0 and W_e5.x-W_e7.x<=0 and W_e5.x-W_e8.x<=0 and W_e5.x-W_e9.x<=0 and W_e5.x-W_e0a.x<=0 and W_e5.x-W_e0b.x<=0 and W_e5.x-W_e0c.x<=0 and W_e7.x<=4 and W_e7.x-W_e4.x<=0 and W_e7.x-W_e5.x<=0 and W_e7.x-W_e8.x<=0 and W_e7.x-W_e9.x<=0 and W_e7.x-W_e0a.x<=0 and W_e7.x-W_e0b.x<=0 and W_e7.x-W_e0c.x<=0 and W_e8.x<=4 and W_e8.x-W_e4.x<=0 and W_e8.x-W_e5.x<=0 and W_e8.x-W_e7.x<=0 and W_e8.x-W_e9.x<=0 and W_e8.x-W_e0a.x<=0 and W_e8.x-W_e0b.x<=0 and W_e8.x-W_e0c.x<=0 and W_e9.x<=4 and W_e9.x-W_e4.x<=0 and W_e9.x-W_e5.x<=0 and W_e9.x-W_e7.x<=0 and W_e9.x-W_e8.x<=0 and W_e9.x-W_e0a.x<=0 and W_e9.x-W_e0b.x<=0 and W_e9.x-W_e0c.x<=0 and W_e0a.x<=4 and W_e0a.x-W_e4.x<=0 and W_e0a.x-W_e5.x<=0 and W_e0a.x-W_e7.x<=0 and W_e0a.x-W_e8.x<=0 and W_e0a.x-W_e9.x<=0 and W_e0a.x-W_e0b.x<=0 and W_e0a.x-W_e0c.x<=0 and W_e0b.x<=4 and W_e0b.x-W_e4.x<=0 and W_e0b.x-W_e5.x<=0 and W_e0b.x-W_e7.x<=0 and W_e0b.x-W_e8.x<=0 and W_e0b.x-W_e9.x<=0 and W_e0b.x-W_e0a.x<=0 and W_e0b.x-W_e0c.x<=0 and W_e0c.x<=4 and W_e0c.x-W_e4.x<=0 and W_e0c.x-W_e5.x<=0 and W_e0c.x-W_e7.x<=0 and W_e0c.x-W_e8.x<=0 and W_e0c.x-W_e9.x<=0 and W_e0c.x-W_e0a.x<=0 and W_e0c.x-W_e0b.x<=0
+
+Transition:
+  W_e5.active->W_e5.idle { x >= 3, fire_e5!, 1 }
+  SU.wait->SU.apply_Finish1_0 { 1, fire_e5?, a1 := a1 + 1 > 1 ? 1 : a1 + 1, q2 := q2 + 1 > 5 ? 5 : q2 + 1 }
+
+State:
+( W_e4.idle W_e5.idle W_e7.idle W_e8.idle W_e9.idle W_e0a.done W_e0b.active W_e0c.active SU.apply_Finish1_0 )
+q1=0 a1=1 q2=1 a2=1 dep=0
+W_e4.x>=3 and W_e5.x>=3 and W_e7.x>=3 and W_e8.x>=3 and W_e9.x>=3 and W_e0a.x>=3 and W_e0b.x>=3 and W_e0c.x>=3 and W_e4.x<=4 and W_e4.x-W_e5.x<=0 and W_e4.x-W_e7.x<=0 and W_e4.x-W_e8.x<=0 and W_e4.x-W_e9.x<=0 and W_e4.x-W_e0a.x<=0 and W_e4.x-W_e0b.x<=0 and W_e4.x-W_e0c.x<=0 and W_e5.x<=4 and W_e5.x-W_e4.x<=0 and W_e5.x-W_e7.x<=0 and W_e5.x-W_e8.x<=0 and W_e5.x-W_e9.x<=0 and W_e5.x-W_e0a.x<=0 and W_e5.x-W_e0b.x<=0 and W_e5.x-W_e0c.x<=0 and W_e7.x<=4 and W_e7.x-W_e4.x<=0 and W_e7.x-W_e5.x<=0 and W_e7.x-W_e8.x<=0 and W_e7.x-W_e9.x<=0 and W_e7.x-W_e0a.x<=0 and W_e7.x-W_e0b.x<=0 and W_e7.x-W_e0c.x<=0 and W_e8.x<=4 and W_e8.x-W_e4.x<=0 and W_e8.x-W_e5.x<=0 and W_e8.x-W_e7.x<=0 and W_e8.x-W_e9.x<=0 and W_e8.x-W_e0a.x<=0 and W_e8.x-W_e0b.x<=0 and W_e8.x-W_e0c.x<=0 and W_e9.x<=4 and W_e9.x-W_e4.x<=0 and W_e9.x-W_e5.x<=0 and W_e9.x-W_e7.x<=0 and W_e9.x-W_e8.x<=0 and W_e9.x-W_e0a.x<=0 and W_e9.x-W_e0b.x<=0 and W_e9.x-W_e0c.x<=0 and W_e0a.x<=4 and W_e0a.x-W_e4.x<=0 and W_e0a.x-W_e5.x<=0 and W_e0a.x-W_e7.x<=0 and W_e0a.x-W_e8.x<=0 and W_e0a.x-W_e9.x<=0 and W_e0a.x-W_e0b.x<=0 and W_e0a.x-W_e0c.x<=0 and W_e0b.x<=4 and W_e0b.x-W_e4.x<=0 and W_e0b.x-W_e5.x<=0 and W_e0b.x-W_e7.x<=0 and W_e0b.x-W_e8.x<=0 and W_e0b.x-W_e9.x<=0 and W_e0b.x-W_e0a.x<=0 and W_e0b.x-W_e0c.x<=0 and W_e0c.x<=4 and W_e0c.x-W_e4.x<=0 and W_e0c.x-W_e5.x<=0 and W_e0c.x-W_e7.x<=0 and W_e0c.x-W_e8.x<=0 and W_e0c.x-W_e9.x<=0 and W_e0c.x-W_e0a.x<=0 and W_e0c.x-W_e0b.x<=0
+
+Transition:
+  SU.apply_Finish1_0->SU.wait { 1, sched_e7!, 1 }
+  W_e7.idle->W_e7.active { a2 >= 1, sched_e7?, x := 0 }
+
+State:
+( W_e4.idle W_e5.idle W_e7.active W_e8.idle W_e9.idle W_e0a.done W_e0b.active W_e0c.active SU.wait )
+q1=0 a1=1 q2=1 a2=1 dep=0
+W_e4.x>=3 and W_e5.x>=3 and W_e8.x>=3 and W_e9.x>=3 and W_e0a.x>=3 and W_e0b.x>=3 and W_e0c.x>=3 and W_e4.x<=4 and W_e4.x-W_e5.x<=0 and W_e4.x-W_e7.x<=4 and W_e4.x-W_e8.x<=0 and W_e4.x-W_e9.x<=0 and W_e4.x-W_e0a.x<=0 and W_e4.x-W_e0b.x<=0 and W_e4.x-W_e0c.x<=0 and W_e5.x<=4 and W_e5.x-W_e4.x<=0 and W_e5.x-W_e7.x<=4 and W_e5.x-W_e8.x<=0 and W_e5.x-W_e9.x<=0 and W_e5.x-W_e0a.x<=0 and W_e5.x-W_e0b.x<=0 and W_e5.x-W_e0c.x<=0 and W_e7.x<=0 and W_e7.x-W_e4.x<=-3 and W_e7.x-W_e5.x<=-3 and W_e7.x-W_e8.x<=-3 and W_e7.x-W_e9.x<=-3 and W_e7.x-W_e0a.x<=-3 and W_e7.x-W_e0b.x<=-3 and W_e7.x-W_e0c.x<=-3 and W_e8.x<=4 and W_e8.x-W_e4.x<=0 and W_e8.x-W_e5.x<=0 and W_e8.x-W_e7.x<=4 and W_e8.x-W_e9.x<=0 and W_e8.x-W_e0a.x<=0 and W_e8.x-W_e0b.x<=0 and W_e8.x-W_e0c.x<=0 and W_e9.x<=4 and W_e9.x-W_e4.x<=0 and W_e9.x-W_e5.x<=0 and W_e9.x-W_e7.x<=4 and W_e9.x-W_e8.x<=0 and W_e9.x-W_e0a.x<=0 and W_e9.x-W_e0b.x<=0 and W_e9.x-W_e0c.x<=0 and W_e0a.x<=4 and W_e0a.x-W_e4.x<=0 and W_e0a.x-W_e5.x<=0 and W_e0a.x-W_e7.x<=4 and W_e0a.x-W_e8.x<=0 and W_e0a.x-W_e9.x<=0 and W_e0a.x-W_e0b.x<=0 and W_e0a.x-W_e0c.x<=0 and W_e0b.x<=4 and W_e0b.x-W_e4.x<=0 and W_e0b.x-W_e5.x<=0 and W_e0b.x-W_e7.x<=4 and W_e0b.x-W_e8.x<=0 and W_e0b.x-W_e9.x<=0 and W_e0b.x-W_e0a.x<=0 and W_e0b.x-W_e0c.x<=0 and W_e0c.x<=4 and W_e0c.x-W_e4.x<=0 and W_e0c.x-W_e5.x<=0 and W_e0c.x-W_e7.x<=4 and W_e0c.x-W_e8.x<=0 and W_e0c.x-W_e9.x<=0 and W_e0c.x-W_e0a.x<=0 and W_e0c.x-W_e0b.x<=0
+
+Transition:
+  W_e7.active->W_e7.idle { x >= 0, fire_e7!, 1 }
+  SU.wait->SU.apply_Start2_0 { 1, fire_e7?, q2 := q2 - 1, a2 := a2 - 1 }
+
+State:
+( W_e4.idle W_e5.idle W_e7.idle W_e8.idle W_e9.idle W_e0a.done W_e0b.active W_e0c.active SU.apply_Start2_0 )
+q1=0 a1=1 q2=0 a2=0 dep=0
+W_e4.x>=3 and W_e5.x>=3 and W_e8.x>=3 and W_e9.x>=3 and W_e0a.x>=3 and W_e0b.x>=3 and W_e0c.x>=3 and W_e4.x<=4 and W_e4.x-W_e5.x<=0 and W_e4.x-W_e7.x<=4 and W_e4.x-W_e8.x<=0 and W_e4.x-W_e9.x<=0 and W_e4.x-W_e0a.x<=0 and W_e4.x-W_e0b.x<=0 and W_e4.x-W_e0c.x<=0 and W_e5.x<=4 and W_e5.x-W_e4.x<=0 and W_e5.x-W_e7.x<=4 and W_e5.x-W_e8.x<=0 and W_e5.x-W_e9.x<=0 and W_e5.x-W_e0a.x<=0 and W_e5.x-W_e0b.x<=0 and W_e5.x-W_e0c.x<=0 and W_e7.x<=0 and W_e7.x-W_e4.x<=-3 and W_e7.x-W_e5.x<=-3 and W_e7.x-W_e8.x<=-3 and W_e7.x-W_e9.x<=-3 and W_e7.x-W_e0a.x<=-3 and W_e7.x-W_e0b.x<=-3 and W_e7.x-W_e0c.x<=-3 and W_e8.x<=4 and W_e8.x-W_e4.x<=0 and W_e8.x-W_e5.x<=0 and W_e8.x-W_e7.x<=4 and W_e8.x-W_e9.x<=0 and W_e8.x-W_e0a.x<=0 and W_e8.x-W_e0b.x<=0 and W_e8.x-W_e0c.x<=0 and W_e9.x<=4 and W_e9.x-W_e4.x<=0 and W_e9.x-W_e5.x<=0 and W_e9.x-W_e7.x<=4 and W_e9.x-W_e8.x<=0 and W_e9.x-W_e0a.x<=0 and W_e9.x-W_e0b.x<=0 and W_e9.x-W_e0c.x<=0 and W_e0a.x<=4 and W_e0a.x-W_e4.x<=0 and W_e0a.x-W_e5.x<=0 and W_e0a.x-W_e7.x<=4 and W_e0a.x-W_e8.x<=0 and W_e0a.x-W_e9.x<=0 and W_e0a.x-W_e0b.x<=0 and W_e0a.x-W_e0c.x<=0 and W_e0b.x<=4 and W_e0b.x-W_e4.x<=0 and W_e0b.x-W_e5.x<=0 and W_e0b.x-W_e7.x<=4 and W_e0b.x-W_e8.x<=0 and W_e0b.x-W_e9.x<=0 and W_e0b.x-W_e0a.x<=0 and W_e0b.x-W_e0c.x<=0 and W_e0c.x<=4 and W_e0c.x-W_e4.x<=0 and W_e0c.x-W_e5.x<=0 and W_e0c.x-W_e7.x<=4 and W_e0c.x-W_e8.x<=0 and W_e0c.x-W_e9.x<=0 and W_e0c.x-W_e0a.x<=0 and W_e0c.x-W_e0b.x<=0
+
+Transition:
+  SU.apply_Start2_0->SU.wait { 1, sched_e8!, 1 }
+  W_e8.idle->W_e8.active { 1, sched_e8?, x := 0 }
+
+State:
+( W_e4.idle W_e5.idle W_e7.idle W_e8.active W_e9.idle W_e0a.done W_e0b.active W_e0c.active SU.wait )
+q1=0 a1=1 q2=0 a2=0 dep=0
+W_e4.x>=3 and W_e5.x>=3 and W_e9.x>=3 and W_e0a.x>=3 and W_e0b.x>=3 and W_e0c.x>=3 and W_e4.x<=4 and W_e4.x-W_e5.x<=0 and W_e4.x-W_e7.x<=4 and W_e4.x-W_e8.x<=4 and W_e4.x-W_e9.x<=0 and W_e4.x-W_e0a.x<=0 and W_e4.x-W_e0b.x<=0 and W_e4.x-W_e0c.x<=0 and W_e5.x<=4 and W_e5.x-W_e4.x<=0 and W_e5.x-W_e7.x<=4 and W_e5.x-W_e8.x<=4 and W_e5.x-W_e9.x<=0 and W_e5.x-W_e0a.x<=0 and W_e5.x-W_e0b.x<=0 and W_e5.x-W_e0c.x<=0 and W_e7.x<=1 and W_e7.x-W_e4.x<=-3 and W_e7.x-W_e5.x<=-3 and W_e7.x-W_e8.x<=0 and W_e7.x-W_e9.x<=-3 and W_e7.x-W_e0a.x<=-3 and W_e7.x-W_e0b.x<=-3 and W_e7.x-W_e0c.x<=-3 and W_e8.x<=1 and W_e8.x-W_e4.x<=-3 and W_e8.x-W_e5.x<=-3 and W_e8.x-W_e7.x<=0 and W_e8.x-W_e9.x<=-3 and W_e8.x-W_e0a.x<=-3 and W_e8.x-W_e0b.x<=-3 and W_e8.x-W_e0c.x<=-3 and W_e9.x<=4 and W_e9.x-W_e4.x<=0 and W_e9.x-W_e5.x<=0 and W_e9.x-W_e7.x<=4 and W_e9.x-W_e8.x<=4 and W_e9.x-W_e0a.x<=0 and W_e9.x-W_e0b.x<=0 and W_e9.x-W_e0c.x<=0 and W_e0a.x<=4 and W_e0a.x-W_e4.x<=0 and W_e0a.x-W_e5.x<=0 and W_e0a.x-W_e7.x<=4 and W_e0a.x-W_e8.x<=4 and W_e0a.x-W_e9.x<=0 and W_e0a.x-W_e0b.x<=0 and W_e0a.x-W_e0c.x<=0 and W_e0b.x<=4 and W_e0b.x-W_e4.x<=0 and W_e0b.x-W_e5.x<=0 and W_e0b.x-W_e7.x<=4 and W_e0b.x-W_e8.x<=4 and W_e0b.x-W_e9.x<=0 and W_e0b.x-W_e0a.x<=0 and W_e0b.x-W_e0c.x<=0 and W_e0c.x<=4 and W_e0c.x-W_e4.x<=0 and W_e0c.x-W_e5.x<=0 and W_e0c.x-W_e7.x<=4 and W_e0c.x-W_e8.x<=4 and W_e0c.x-W_e9.x<=0 and W_e0c.x-W_e0a.x<=0 and W_e0c.x-W_e0b.x<=0
+
+Transition:
+  W_e0b.active->W_e0b.done { x >= 4, fire_e0b!, 1 }
+  SU.wait->SU.apply_Arrive_0 { 1, fire_e0b?, q1 := q1 + 1 > 5 ? 5 : q1 + 1 }
+
+State:
+( W_e4.idle W_e5.idle W_e7.idle W_e8.active W_e9.idle W_e0a.done W_e0b.done W_e0c.active SU.apply_Arrive_0 )
+q1=1 a1=1 q2=0 a2=0 dep=0
+W_e4.x>=4 and W_e5.x>=4 and W_e9.x>=4 and W_e0a.x>=4 and W_e0b.x>=4 and W_e0c.x>=4 and W_e4.x<=4 and W_e4.x-W_e5.x<=0 and W_e4.x-W_e7.x<=4 and W_e4.x-W_e8.x<=4 and W_e4.x-W_e9.x<=0 and W_e4.x-W_e0a.x<=0 and W_e4.x-W_e0b.x<=0 and W_e4.x-W_e0c.x<=0 and W_e5.x<=4 and W_e5.x-W_e4.x<=0 and W_e5.x-W_e7.x<=4 and W_e5.x-W_e8.x<=4 and W_e5.x-W_e9.x<=0 and W_e5.x-W_e0a.x<=0 and W_e5.x-W_e0b.x<=0 and W_e5.x-W_e0c.x<=0 and W_e7.x<=1 and W_e7.x-W_e4.x<=-3 and W_e7.x-W_e5.x<=-3 and W_e7.x-W_e8.x<=0 and W_e7.x-W_e9.x<=-3 and W_e7.x-W_e0a.x<=-3 and W_e7.x-W_e0b.x<=-3 and W_e7.x-W_e0c.x<=-3 and W_e8.x<=1 and W_e8.x-W_e4.x<=-3 and W_e8.x-W_e5.x<=-3 and W_e8.x-W_e7.x<=0 and W_e8.x-W_e9.x<=-3 and W_e8.x-W_e0a.x<=-3 and W_e8.x-W_e0b.x<=-3 and W_e8.x-W_e0c.x<=-3 and W_e9.x<=4 and W_e9.x-W_e4.x<=0 and W_e9.x-W_e5.x<=0 and W_e9.x-W_e7.x<=4 and W_e9.x-W_e8.x<=4 and W_e9.x-W_e0a.x<=0 and W_e9.x-W_e0b.x<=0 and W_e9.x-W_e0c.x<=0 and W_e0a.x<=4 and W_e0a.x-W_e4.x<=0 and W_e0a.x-W_e5.x<=0 and W_e0a.x-W_e7.x<=4 and W_e0a.x-W_e8.x<=4 and W_e0a.x-W_e9.x<=0 and W_e0a.x-W_e0b.x<=0 and W_e0a.x-W_e0c.x<=0 and W_e0b.x<=4 and W_e0b.x-W_e4.x<=0 and W_e0b.x-W_e5.x<=0 and W_e0b.x-W_e7.x<=4 and W_e0b.x-W_e8.x<=4 and W_e0b.x-W_e9.x<=0 and W_e0b.x-W_e0a.x<=0 and W_e0b.x-W_e0c.x<=0 and W_e0c.x<=4 and W_e0c.x-W_e4.x<=0 and W_e0c.x-W_e5.x<=0 and W_e0c.x-W_e7.x<=4 and W_e0c.x-W_e8.x<=4 and W_e0c.x-W_e9.x<=0 and W_e0c.x-W_e0a.x<=0 and W_e0c.x-W_e0b.x<=0
+
+Transition:
+  SU.apply_Arrive_0->SU.wait { 1, sched_e4!, 1 }
+  W_e4.idle->W_e4.active { a1 >= 1, sched_e4?, x := 0 }
+
+State:
+( W_e4.active W_e5.idle W_e7.idle W_e8.active W_e9.idle W_e0a.done W_e0b.done W_e0c.active SU.wait )
+q1=1 a1=1 q2=0 a2=0 dep=0
+W_e5.x>=4 and W_e9.x>=4 and W_e0a.x>=4 and W_e0b.x>=4 and W_e0c.x>=4 and W_e4.x<=0 and W_e4.x-W_e5.x<=-4 and W_e4.x-W_e7.x<=0 and W_e4.x-W_e8.x<=0 and W_e4.x-W_e9.x<=-4 and W_e4.x-W_e0a.x<=-4 and W_e4.x-W_e0b.x<=-4 and W_e4.x-W_e0c.x<=-4 and W_e5.x<=4 and W_e5.x-W_e4.x<=4 and W_e5.x-W_e7.x<=4 and W_e5.x-W_e8.x<=4 and W_e5.x-W_e9.x<=0 and W_e5.x-W_e0a.x<=0 and W_e5.x-W_e0b.x<=0 and W_e5.x-W_e0c.x<=0 and W_e7.x<=1 and W_e7.x-W_e4.x<=1 and W_e7.x-W_e5.x<=-3 and W_e7.x-W_e8.x<=0 and W_e7.x-W_e9.x<=-3 and W_e7.x-W_e0a.x<=-3 and W_e7.x-W_e0b.x<=-3 and W_e7.x-W_e0c.x<=-3 and W_e8.x<=1 and W_e8.x-W_e4.x<=1 and W_e8.x-W_e5.x<=-3 and W_e8.x-W_e7.x<=0 and W_e8.x-W_e9.x<=-3 and W_e8.x-W_e0a.x<=-3 and W_e8.x-W_e0b.x<=-3 and W_e8.x-W_e0c.x<=-3 and W_e9.x<=4 and W_e9.x-W_e4.x<=4 and W_e9.x-W_e5.x<=0 and W_e9.x-W_e7.x<=4 and W_e9.x-W_e8.x<=4 and W_e9.x-W_e0a.x<=0 and W_e9.x-W_e0b.x<=0 and W_e9.x-W_e0c.x<=0 and W_e0a.x<=4 and W_e0a.x-W_e4.x<=4 and W_e0a.x-W_e5.x<=0 and W_e0a.x-W_e7.x<=4 and W_e0a.x-W_e8.x<=4 and W_e0a.x-W_e9.x<=0 and W_e0a.x-W_e0b.x<=0 and W_e0a.x-W_e0c.x<=0 and W_e0b.x<=4 and W_e0b.x-W_e4.x<=4 and W_e0b.x-W_e5.x<=0 and W_e0b.x-W_e7.x<=4 and W_e0b.x-W_e8.x<=4 and W_e0b.x-W_e9.x<=0 and W_e0b.x-W_e0a.x<=0 and W_e0b.x-W_e0c.x<=0 and W_e0c.x<=4 and W_e0c.x-W_e4.x<=4 and W_e0c.x-W_e5.x<=0 and W_e0c.x-W_e7.x<=4 and W_e0c.x-W_e8.x<=4 and W_e0c.x-W_e9.x<=0 and W_e0c.x-W_e0a.x<=0 and W_e0c.x-W_e0b.x<=0
+
+Transition:
+  W_e4.active->W_e4.idle { x >= 0, fire_e4!, 1 }
+  SU.wait->SU.apply_Start1_0 { 1, fire_e4?, q1 := q1 - 1, a1 := a1 - 1 }
+
+State:
+( W_e4.idle W_e5.idle W_e7.idle W_e8.active W_e9.idle W_e0a.done W_e0b.done W_e0c.active SU.apply_Start1_0 )
+q1=0 a1=0 q2=0 a2=0 dep=0
+W_e5.x>=4 and W_e9.x>=4 and W_e0a.x>=4 and W_e0b.x>=4 and W_e0c.x>=4 and W_e4.x<=0 and W_e4.x-W_e5.x<=-4 and W_e4.x-W_e7.x<=0 and W_e4.x-W_e8.x<=0 and W_e4.x-W_e9.x<=-4 and W_e4.x-W_e0a.x<=-4 and W_e4.x-W_e0b.x<=-4 and W_e4.x-W_e0c.x<=-4 and W_e5.x<=4 and W_e5.x-W_e4.x<=4 and W_e5.x-W_e7.x<=4 and W_e5.x-W_e8.x<=4 and W_e5.x-W_e9.x<=0 and W_e5.x-W_e0a.x<=0 and W_e5.x-W_e0b.x<=0 and W_e5.x-W_e0c.x<=0 and W_e7.x<=1 and W_e7.x-W_e4.x<=1 and W_e7.x-W_e5.x<=-3 and W_e7.x-W_e8.x<=0 and W_e7.x-W_e9.x<=-3 and W_e7.x-W_e0a.x<=-3 and W_e7.x-W_e0b.x<=-3 and W_e7.x-W_e0c.x<=-3 and W_e8.x<=1 and W_e8.x-W_e4.x<=1 and W_e8.x-W_e5.x<=-3 and W_e8.x-W_e7.x<=0 and W_e8.x-W_e9.x<=-3 and W_e8.x-W_e0a.x<=-3 and W_e8.x-W_e0b.x<=-3 and W_e8.x-W_e0c.x<=-3 and W_e9.x<=4 and W_e9.x-W_e4.x<=4 and W_e9.x-W_e5.x<=0 and W_e9.x-W_e7.x<=4 and W_e9.x-W_e8.x<=4 and W_e9.x-W_e0a.x<=0 and W_e9.x-W_e0b.x<=0 and W_e9.x-W_e0c.x<=0 and W_e0a.x<=4 and W_e0a.x-W_e4.x<=4 and W_e0a.x-W_e5.x<=0 and W_e0a.x-W_e7.x<=4 and W_e0a.x-W_e8.x<=4 and W_e0a.x-W_e9.x<=0 and W_e0a.x-W_e0b.x<=0 and W_e0a.x-W_e0c.x<=0 and W_e0b.x<=4 and W_e0b.x-W_e4.x<=4 and W_e0b.x-W_e5.x<=0 and W_e0b.x-W_e7.x<=4 and W_e0b.x-W_e8.x<=4 and W_e0b.x-W_e9.x<=0 and W_e0b.x-W_e0a.x<=0 and W_e0b.x-W_e0c.x<=0 and W_e0c.x<=4 and W_e0c.x-W_e4.x<=4 and W_e0c.x-W_e5.x<=0 and W_e0c.x-W_e7.x<=4 and W_e0c.x-W_e8.x<=4 and W_e0c.x-W_e9.x<=0 and W_e0c.x-W_e0a.x<=0 and W_e0c.x-W_e0b.x<=0
+
+Transition:
+  SU.apply_Start1_0->SU.wait { 1, sched_e5!, 1 }
+  W_e5.idle->W_e5.active { 1, sched_e5?, x := 0 }
+
+State:
+( W_e4.idle W_e5.active W_e7.idle W_e8.active W_e9.idle W_e0a.done W_e0b.done W_e0c.active SU.wait )
+q1=0 a1=0 q2=0 a2=0 dep=0
+W_e9.x>=4 and W_e0a.x>=4 and W_e0b.x>=4 and W_e0c.x>=4 and W_e4.x<=4 and W_e4.x-W_e5.x<=0 and W_e4.x-W_e7.x<=0 and W_e4.x-W_e8.x<=0 and W_e4.x-W_e9.x<=-4 and W_e4.x-W_e0a.x<=-4 and W_e4.x-W_e0b.x<=-4 and W_e4.x-W_e0c.x<=-4 and W_e5.x<=4 and W_e5.x-W_e4.x<=0 and W_e5.x-W_e7.x<=0 and W_e5.x-W_e8.x<=0 and W_e5.x-W_e9.x<=-4 and W_e5.x-W_e0a.x<=-4 and W_e5.x-W_e0b.x<=-4 and W_e5.x-W_e0c.x<=-4 and W_e7.x<=5 and W_e7.x-W_e4.x<=1 and W_e7.x-W_e5.x<=1 and W_e7.x-W_e8.x<=0 and W_e7.x-W_e9.x<=-3 and W_e7.x-W_e0a.x<=-3 and W_e7.x-W_e0b.x<=-3 and W_e7.x-W_e0c.x<=-3 and W_e8.x<=5 and W_e8.x-W_e4.x<=1 and W_e8.x-W_e5.x<=1 and W_e8.x-W_e7.x<=0 and W_e8.x-W_e9.x<=-3 and W_e8.x-W_e0a.x<=-3 and W_e8.x-W_e0b.x<=-3 and W_e8.x-W_e0c.x<=-3 and W_e9.x<=8 and W_e9.x-W_e4.x<=4 and W_e9.x-W_e5.x<=4 and W_e9.x-W_e7.x<=4 and W_e9.x-W_e8.x<=4 and W_e9.x-W_e0a.x<=0 and W_e9.x-W_e0b.x<=0 and W_e9.x-W_e0c.x<=0 and W_e0a.x<=8 and W_e0a.x-W_e4.x<=4 and W_e0a.x-W_e5.x<=4 and W_e0a.x-W_e7.x<=4 and W_e0a.x-W_e8.x<=4 and W_e0a.x-W_e9.x<=0 and W_e0a.x-W_e0b.x<=0 and W_e0a.x-W_e0c.x<=0 and W_e0b.x<=8 and W_e0b.x-W_e4.x<=4 and W_e0b.x-W_e5.x<=4 and W_e0b.x-W_e7.x<=4 and W_e0b.x-W_e8.x<=4 and W_e0b.x-W_e9.x<=0 and W_e0b.x-W_e0a.x<=0 and W_e0b.x-W_e0c.x<=0 and W_e0c.x<=8 and W_e0c.x-W_e4.x<=4 and W_e0c.x-W_e5.x<=4 and W_e0c.x-W_e7.x<=4 and W_e0c.x-W_e8.x<=4 and W_e0c.x-W_e9.x<=0 and W_e0c.x-W_e0a.x<=0 and W_e0c.x-W_e0b.x<=0
+
+Transition:
+  W_e0c.active->W_e0c.done { x >= 8, fire_e0c!, 1 }
+  SU.wait->SU.apply_Arrive_0 { 1, fire_e0c?, q1 := q1 + 1 > 5 ? 5 : q1 + 1 }
+
+State:
+( W_e4.idle W_e5.active W_e7.idle W_e8.active W_e9.idle W_e0a.done W_e0b.done W_e0c.done SU.apply_Arrive_0 )
+q1=1 a1=0 q2=0 a2=0 dep=0
+W_e4.x>=4 and W_e5.x>=4 and W_e7.x>=4 and W_e8.x>=4 and W_e9.x>=8 and W_e0a.x>=8 and W_e0b.x>=8 and W_e0c.x>=8 and W_e4.x<=4 and W_e4.x-W_e5.x<=0 and W_e4.x-W_e7.x<=0 and W_e4.x-W_e8.x<=0 and W_e4.x-W_e9.x<=-4 and W_e4.x-W_e0a.x<=-4 and W_e4.x-W_e0b.x<=-4 and W_e4.x-W_e0c.x<=-4 and W_e5.x<=4 and W_e5.x-W_e4.x<=0 and W_e5.x-W_e7.x<=0 and W_e5.x-W_e8.x<=0 and W_e5.x-W_e9.x<=-4 and W_e5.x-W_e0a.x<=-4 and W_e5.x-W_e0b.x<=-4 and W_e5.x-W_e0c.x<=-4 and W_e7.x<=5 and W_e7.x-W_e4.x<=1 and W_e7.x-W_e5.x<=1 and W_e7.x-W_e8.x<=0 and W_e7.x-W_e9.x<=-3 and W_e7.x-W_e0a.x<=-3 and W_e7.x-W_e0b.x<=-3 and W_e7.x-W_e0c.x<=-3 and W_e8.x<=5 and W_e8.x-W_e4.x<=1 and W_e8.x-W_e5.x<=1 and W_e8.x-W_e7.x<=0 and W_e8.x-W_e9.x<=-3 and W_e8.x-W_e0a.x<=-3 and W_e8.x-W_e0b.x<=-3 and W_e8.x-W_e0c.x<=-3 and W_e9.x<=8 and W_e9.x-W_e4.x<=4 and W_e9.x-W_e5.x<=4 and W_e9.x-W_e7.x<=4 and W_e9.x-W_e8.x<=4 and W_e9.x-W_e0a.x<=0 and W_e9.x-W_e0b.x<=0 and W_e9.x-W_e0c.x<=0 and W_e0a.x<=8 and W_e0a.x-W_e4.x<=4 and W_e0a.x-W_e5.x<=4 and W_e0a.x-W_e7.x<=4 and W_e0a.x-W_e8.x<=4 and W_e0a.x-W_e9.x<=0 and W_e0a.x-W_e0b.x<=0 and W_e0a.x-W_e0c.x<=0 and W_e0b.x<=8 and W_e0b.x-W_e4.x<=4 and W_e0b.x-W_e5.x<=4 and W_e0b.x-W_e7.x<=4 and W_e0b.x-W_e8.x<=4 and W_e0b.x-W_e9.x<=0 and W_e0b.x-W_e0a.x<=0 and W_e0b.x-W_e0c.x<=0 and W_e0c.x<=8 and W_e0c.x-W_e4.x<=4 and W_e0c.x-W_e5.x<=4 and W_e0c.x-W_e7.x<=4 and W_e0c.x-W_e8.x<=4 and W_e0c.x-W_e9.x<=0 and W_e0c.x-W_e0a.x<=0 and W_e0c.x-W_e0b.x<=0
+
+Transition:
+  SU.apply_Arrive_0->SU.wait { 1, sched_e4!, 1 }
+  W_e4.idle->W_e4.idle { a1 < 1, sched_e4?, 1 }
+
+State:
+( W_e4.idle W_e5.active W_e7.idle W_e8.active W_e9.idle W_e0a.done W_e0b.done W_e0c.done SU.wait )
+q1=1 a1=0 q2=0 a2=0 dep=0
+W_e4.x>=4 and W_e5.x>=4 and W_e7.x>=4 and W_e8.x>=4 and W_e9.x>=8 and W_e0a.x>=8 and W_e0b.x>=8 and W_e0c.x>=8 and W_e4.x<=5 and W_e4.x-W_e5.x<=0 and W_e4.x-W_e7.x<=0 and W_e4.x-W_e8.x<=0 and W_e4.x-W_e9.x<=-4 and W_e4.x-W_e0a.x<=-4 and W_e4.x-W_e0b.x<=-4 and W_e4.x-W_e0c.x<=-4 and W_e5.x<=5 and W_e5.x-W_e4.x<=0 and W_e5.x-W_e7.x<=0 and W_e5.x-W_e8.x<=0 and W_e5.x-W_e9.x<=-4 and W_e5.x-W_e0a.x<=-4 and W_e5.x-W_e0b.x<=-4 and W_e5.x-W_e0c.x<=-4 and W_e7.x<=5 and W_e7.x-W_e4.x<=1 and W_e7.x-W_e5.x<=1 and W_e7.x-W_e8.x<=0 and W_e7.x-W_e9.x<=-3 and W_e7.x-W_e0a.x<=-3 and W_e7.x-W_e0b.x<=-3 and W_e7.x-W_e0c.x<=-3 and W_e8.x<=5 and W_e8.x-W_e4.x<=1 and W_e8.x-W_e5.x<=1 and W_e8.x-W_e7.x<=0 and W_e8.x-W_e9.x<=-3 and W_e8.x-W_e0a.x<=-3 and W_e8.x-W_e0b.x<=-3 and W_e8.x-W_e0c.x<=-3 and W_e9.x<=9 and W_e9.x-W_e4.x<=4 and W_e9.x-W_e5.x<=4 and W_e9.x-W_e7.x<=4 and W_e9.x-W_e8.x<=4 and W_e9.x-W_e0a.x<=0 and W_e9.x-W_e0b.x<=0 and W_e9.x-W_e0c.x<=0 and W_e0a.x<=9 and W_e0a.x-W_e4.x<=4 and W_e0a.x-W_e5.x<=4 and W_e0a.x-W_e7.x<=4 and W_e0a.x-W_e8.x<=4 and W_e0a.x-W_e9.x<=0 and W_e0a.x-W_e0b.x<=0 and W_e0a.x-W_e0c.x<=0 and W_e0b.x<=9 and W_e0b.x-W_e4.x<=4 and W_e0b.x-W_e5.x<=4 and W_e0b.x-W_e7.x<=4 and W_e0b.x-W_e8.x<=4 and W_e0b.x-W_e9.x<=0 and W_e0b.x-W_e0a.x<=0 and W_e0b.x-W_e0c.x<=0 and W_e0c.x<=9 and W_e0c.x-W_e4.x<=4 and W_e0c.x-W_e5.x<=4 and W_e0c.x-W_e7.x<=4 and W_e0c.x-W_e8.x<=4 and W_e0c.x-W_e9.x<=0 and W_e0c.x-W_e0a.x<=0 and W_e0c.x-W_e0b.x<=0
+
+Transition:
+  W_e5.active->W_e5.idle { x >= 3, fire_e5!, 1 }
+  SU.wait->SU.apply_Finish1_0 { 1, fire_e5?, a1 := a1 + 1 > 1 ? 1 : a1 + 1, q2 := q2 + 1 > 5 ? 5 : q2 + 1 }
+
+State:
+( W_e4.idle W_e5.idle W_e7.idle W_e8.active W_e9.idle W_e0a.done W_e0b.done W_e0c.done SU.apply_Finish1_0 )
+q1=1 a1=1 q2=1 a2=0 dep=0
+W_e4.x>=4 and W_e5.x>=4 and W_e7.x>=4 and W_e8.x>=4 and W_e9.x>=8 and W_e0a.x>=8 and W_e0b.x>=8 and W_e0c.x>=8 and W_e4.x<=5 and W_e4.x-W_e5.x<=0 and W_e4.x-W_e7.x<=0 and W_e4.x-W_e8.x<=0 and W_e4.x-W_e9.x<=-4 and W_e4.x-W_e0a.x<=-4 and W_e4.x-W_e0b.x<=-4 and W_e4.x-W_e0c.x<=-4 and W_e5.x<=5 and W_e5.x-W_e4.x<=0 and W_e5.x-W_e7.x<=0 and W_e5.x-W_e8.x<=0 and W_e5.x-W_e9.x<=-4 and W_e5.x-W_e0a.x<=-4 and W_e5.x-W_e0b.x<=-4 and W_e5.x-W_e0c.x<=-4 and W_e7.x<=5 and W_e7.x-W_e4.x<=1 and W_e7.x-W_e5.x<=1 and W_e7.x-W_e8.x<=0 and W_e7.x-W_e9.x<=-3 and W_e7.x-W_e0a.x<=-3 and W_e7.x-W_e0b.x<=-3 and W_e7.x-W_e0c.x<=-3 and W_e8.x<=5 and W_e8.x-W_e4.x<=1 and W_e8.x-W_e5.x<=1 and W_e8.x-W_e7.x<=0 and W_e8.x-W_e9.x<=-3 and W_e8.x-W_e0a.x<=-3 and W_e8.x-W_e0b.x<=-3 and W_e8.x-W_e0c.x<=-3 and W_e9.x<=9 and W_e9.x-W_e4.x<=4 and W_e9.x-W_e5.x<=4 and W_e9.x-W_e7.x<=4 and W_e9.x-W_e8.x<=4 and W_e9.x-W_e0a.x<=0 and W_e9.x-W_e0b.x<=0 and W_e9.x-W_e0c.x<=0 and W_e0a.x<=9 and W_e0a.x-W_e4.x<=4 and W_e0a.x-W_e5.x<=4 and W_e0a.x-W_e7.x<=4 and W_e0a.x-W_e8.x<=4 and W_e0a.x-W_e9.x<=0 and W_e0a.x-W_e0b.x<=0 and W_e0a.x-W_e0c.x<=0 and W_e0b.x<=9 and W_e0b.x-W_e4.x<=4 and W_e0b.x-W_e5.x<=4 and W_e0b.x-W_e7.x<=4 and W_e0b.x-W_e8.x<=4 and W_e0b.x-W_e9.x<=0 and W_e0b.x-W_e0a.x<=0 and W_e0b.x-W_e0c.x<=0 and W_e0c.x<=9 and W_e0c.x-W_e4.x<=4 and W_e0c.x-W_e5.x<=4 and W_e0c.x-W_e7.x<=4 and W_e0c.x-W_e8.x<=4 and W_e0c.x-W_e9.x<=0 and W_e0c.x-W_e0a.x<=0 and W_e0c.x-W_e0b.x<=0
+
+Transition:
+  SU.apply_Finish1_0->SU.wait { 1, sched_e7!, 1 }
+  W_e7.idle->W_e7.idle { a2 < 1, sched_e7?, 1 }
+
+State:
+( W_e4.idle W_e5.idle W_e7.idle W_e8.active W_e9.idle W_e0a.done W_e0b.done W_e0c.done SU.wait )
+q1=1 a1=1 q2=1 a2=0 dep=0
+W_e4.x>=4 and W_e5.x>=4 and W_e7.x>=4 and W_e8.x>=4 and W_e9.x>=8 and W_e0a.x>=8 and W_e0b.x>=8 and W_e0c.x>=8 and W_e4.x<=5 and W_e4.x-W_e5.x<=0 and W_e4.x-W_e7.x<=0 and W_e4.x-W_e8.x<=0 and W_e4.x-W_e9.x<=-4 and W_e4.x-W_e0a.x<=-4 and W_e4.x-W_e0b.x<=-4 and W_e4.x-W_e0c.x<=-4 and W_e5.x<=5 and W_e5.x-W_e4.x<=0 and W_e5.x-W_e7.x<=0 and W_e5.x-W_e8.x<=0 and W_e5.x-W_e9.x<=-4 and W_e5.x-W_e0a.x<=-4 and W_e5.x-W_e0b.x<=-4 and W_e5.x-W_e0c.x<=-4 and W_e7.x<=5 and W_e7.x-W_e4.x<=1 and W_e7.x-W_e5.x<=1 and W_e7.x-W_e8.x<=0 and W_e7.x-W_e9.x<=-3 and W_e7.x-W_e0a.x<=-3 and W_e7.x-W_e0b.x<=-3 and W_e7.x-W_e0c.x<=-3 and W_e8.x<=5 and W_e8.x-W_e4.x<=1 and W_e8.x-W_e5.x<=1 and W_e8.x-W_e7.x<=0 and W_e8.x-W_e9.x<=-3 and W_e8.x-W_e0a.x<=-3 and W_e8.x-W_e0b.x<=-3 and W_e8.x-W_e0c.x<=-3 and W_e9.x<=9 and W_e9.x-W_e4.x<=4 and W_e9.x-W_e5.x<=4 and W_e9.x-W_e7.x<=4 and W_e9.x-W_e8.x<=4 and W_e9.x-W_e0a.x<=0 and W_e9.x-W_e0b.x<=0 and W_e9.x-W_e0c.x<=0 and W_e0a.x<=9 and W_e0a.x-W_e4.x<=4 and W_e0a.x-W_e5.x<=4 and W_e0a.x-W_e7.x<=4 and W_e0a.x-W_e8.x<=4 and W_e0a.x-W_e9.x<=0 and W_e0a.x-W_e0b.x<=0 and W_e0a.x-W_e0c.x<=0 and W_e0b.x<=9 and W_e0b.x-W_e4.x<=4 and W_e0b.x-W_e5.x<=4 and W_e0b.x-W_e7.x<=4 and W_e0b.x-W_e8.x<=4 and W_e0b.x-W_e9.x<=0 and W_e0b.x-W_e0a.x<=0 and W_e0b.x-W_e0c.x<=0 and W_e0c.x<=9 and W_e0c.x-W_e4.x<=4 and W_e0c.x-W_e5.x<=4 and W_e0c.x-W_e7.x<=4 and W_e0c.x-W_e8.x<=4 and W_e0c.x-W_e9.x<=0 and W_e0c.x-W_e0a.x<=0 and W_e0c.x-W_e0b.x<=0
+
+Transition:
+  W_e8.active->W_e8.idle { x >= 3, fire_e8!, 1 }
+  SU.wait->SU.apply_Finish2_0 { 1, fire_e8?, a2 := a2 + 1 > 1 ? 1 : a2 + 1, dep := dep + 1 > 3 ? 3 : dep + 1 }
+
+State:
+( W_e4.idle W_e5.idle W_e7.idle W_e8.idle W_e9.idle W_e0a.done W_e0b.done W_e0c.done SU.apply_Finish2_0 )
+q1=1 a1=1 q2=1 a2=1 dep=1
+W_e4.x>=4 and W_e5.x>=4 and W_e7.x>=4 and W_e8.x>=4 and W_e9.x>=8 and W_e0a.x>=8 and W_e0b.x>=8 and W_e0c.x>=8 and W_e4.x<=5 and W_e4.x-W_e5.x<=0 and W_e4.x-W_e7.x<=0 and W_e4.x-W_e8.x<=0 and W_e4.x-W_e9.x<=-4 and W_e4.x-W_e0a.x<=-4 and W_e4.x-W_e0b.x<=-4 and W_e4.x-W_e0c.x<=-4 and W_e5.x<=5 and W_e5.x-W_e4.x<=0 and W_e5.x-W_e7.x<=0 and W_e5.x-W_e8.x<=0 and W_e5.x-W_e9.x<=-4 and W_e5.x-W_e0a.x<=-4 and W_e5.x-W_e0b.x<=-4 and W_e5.x-W_e0c.x<=-4 and W_e7.x<=5 and W_e7.x-W_e4.x<=1 and W_e7.x-W_e5.x<=1 and W_e7.x-W_e8.x<=0 and W_e7.x-W_e9.x<=-3 and W_e7.x-W_e0a.x<=-3 and W_e7.x-W_e0b.x<=-3 and W_e7.x-W_e0c.x<=-3 and W_e8.x<=5 and W_e8.x-W_e4.x<=1 and W_e8.x-W_e5.x<=1 and W_e8.x-W_e7.x<=0 and W_e8.x-W_e9.x<=-3 and W_e8.x-W_e0a.x<=-3 and W_e8.x-W_e0b.x<=-3 and W_e8.x-W_e0c.x<=-3 and W_e9.x<=9 and W_e9.x-W_e4.x<=4 and W_e9.x-W_e5.x<=4 and W_e9.x-W_e7.x<=4 and W_e9.x-W_e8.x<=4 and W_e9.x-W_e0a.x<=0 and W_e9.x-W_e0b.x<=0 and W_e9.x-W_e0c.x<=0 and W_e0a.x<=9 and W_e0a.x-W_e4.x<=4 and W_e0a.x-W_e5.x<=4 and W_e0a.x-W_e7.x<=4 and W_e0a.x-W_e8.x<=4 and W_e0a.x-W_e9.x<=0 and W_e0a.x-W_e0b.x<=0 and W_e0a.x-W_e0c.x<=0 and W_e0b.x<=9 and W_e0b.x-W_e4.x<=4 and W_e0b.x-W_e5.x<=4 and W_e0b.x-W_e7.x<=4 and W_e0b.x-W_e8.x<=4 and W_e0b.x-W_e9.x<=0 and W_e0b.x-W_e0a.x<=0 and W_e0b.x-W_e0c.x<=0 and W_e0c.x<=9 and W_e0c.x-W_e4.x<=4 and W_e0c.x-W_e5.x<=4 and W_e0c.x-W_e7.x<=4 and W_e0c.x-W_e8.x<=4 and W_e0c.x-W_e9.x<=0 and W_e0c.x-W_e0a.x<=0 and W_e0c.x-W_e0b.x<=0
+
+Transition:
+  SU.apply_Finish2_0->SU.wait { 1, sched_e9!, 1 }
+  W_e9.idle->W_e9.active { q2 >= 1 && a2 >= 1, sched_e9?, x := 0 }
+
+State:
+( W_e4.idle W_e5.idle W_e7.idle W_e8.idle W_e9.active W_e0a.done W_e0b.done W_e0c.done SU.wait )
+q1=1 a1=1 q2=1 a2=1 dep=1
+W_e4.x>=4 and W_e5.x>=4 and W_e7.x>=4 and W_e8.x>=4 and W_e0a.x>=8 and W_e0b.x>=8 and W_e0c.x>=8 and W_e4.x<=5 and W_e4.x-W_e5.x<=0 and W_e4.x-W_e7.x<=0 and W_e4.x-W_e8.x<=0 and W_e4.x-W_e9.x<=5 and W_e4.x-W_e0a.x<=-4 and W_e4.x-W_e0b.x<=-4 and W_e4.x-W_e0c.x<=-4 and W_e5.x<=5 and W_e5.x-W_e4.x<=0 and W_e5.x-W_e7.x<=0 and W_e5.x-W_e8.x<=0 and W_e5.x-W_e9.x<=5 and W_e5.x-W_e0a.x<=-4 and W_e5.x-W_e0b.x<=-4 and W_e5.x-W_e0c.x<=-4 and W_e7.x<=5 and W_e7.x-W_e4.x<=1 and W_e7.x-W_e5.x<=1 and W_e7.x-W_e8.x<=0 and W_e7.x-W_e9.x<=5 and W_e7.x-W_e0a.x<=-3 and W_e7.x-W_e0b.x<=-3 and W_e7.x-W_e0c.x<=-3 and W_e8.x<=5 and W_e8.x-W_e4.x<=1 and W_e8.x-W_e5.x<=1 and W_e8.x-W_e7.x<=0 and W_e8.x-W_e9.x<=5 and W_e8.x-W_e0a.x<=-3 and W_e8.x-W_e0b.x<=-3 and W_e8.x-W_e0c.x<=-3 and W_e9.x<=0 and W_e9.x-W_e4.x<=-4 and W_e9.x-W_e5.x<=-4 and W_e9.x-W_e7.x<=-4 and W_e9.x-W_e8.x<=-4 and W_e9.x-W_e0a.x<=-8 and W_e9.x-W_e0b.x<=-8 and W_e9.x-W_e0c.x<=-8 and W_e0a.x<=9 and W_e0a.x-W_e4.x<=4 and W_e0a.x-W_e5.x<=4 and W_e0a.x-W_e7.x<=4 and W_e0a.x-W_e8.x<=4 and W_e0a.x-W_e9.x<=9 and W_e0a.x-W_e0b.x<=0 and W_e0a.x-W_e0c.x<=0 and W_e0b.x<=9 and W_e0b.x-W_e4.x<=4 and W_e0b.x-W_e5.x<=4 and W_e0b.x-W_e7.x<=4 and W_e0b.x-W_e8.x<=4 and W_e0b.x-W_e9.x<=9 and W_e0b.x-W_e0a.x<=0 and W_e0b.x-W_e0c.x<=0 and W_e0c.x<=9 and W_e0c.x-W_e4.x<=4 and W_e0c.x-W_e5.x<=4 and W_e0c.x-W_e7.x<=4 and W_e0c.x-W_e8.x<=4 and W_e0c.x-W_e9.x<=9 and W_e0c.x-W_e0a.x<=0 and W_e0c.x-W_e0b.x<=0
+
+Transition:
+  W_e9.active->W_e9.idle { x >= 0, fire_e9!, 1 }
+  SU.wait->SU.apply_Start2_0 { 1, fire_e9?, q2 := q2 - 1, a2 := a2 - 1 }
+
+State:
+( W_e4.idle W_e5.idle W_e7.idle W_e8.idle W_e9.idle W_e0a.done W_e0b.done W_e0c.done SU.apply_Start2_0 )
+q1=1 a1=1 q2=0 a2=0 dep=1
+W_e4.x>=4 and W_e5.x>=4 and W_e7.x>=4 and W_e8.x>=4 and W_e0a.x>=8 and W_e0b.x>=8 and W_e0c.x>=8 and W_e4.x<=5 and W_e4.x-W_e5.x<=0 and W_e4.x-W_e7.x<=0 and W_e4.x-W_e8.x<=0 and W_e4.x-W_e9.x<=5 and W_e4.x-W_e0a.x<=-4 and W_e4.x-W_e0b.x<=-4 and W_e4.x-W_e0c.x<=-4 and W_e5.x<=5 and W_e5.x-W_e4.x<=0 and W_e5.x-W_e7.x<=0 and W_e5.x-W_e8.x<=0 and W_e5.x-W_e9.x<=5 and W_e5.x-W_e0a.x<=-4 and W_e5.x-W_e0b.x<=-4 and W_e5.x-W_e0c.x<=-4 and W_e7.x<=5 and W_e7.x-W_e4.x<=1 and W_e7.x-W_e5.x<=1 and W_e7.x-W_e8.x<=0 and W_e7.x-W_e9.x<=5 and W_e7.x-W_e0a.x<=-3 and W_e7.x-W_e0b.x<=-3 and W_e7.x-W_e0c.x<=-3 and W_e8.x<=5 and W_e8.x-W_e4.x<=1 and W_e8.x-W_e5.x<=1 and W_e8.x-W_e7.x<=0 and W_e8.x-W_e9.x<=5 and W_e8.x-W_e0a.x<=-3 and W_e8.x-W_e0b.x<=-3 and W_e8.x-W_e0c.x<=-3 and W_e9.x<=0 and W_e9.x-W_e4.x<=-4 and W_e9.x-W_e5.x<=-4 and W_e9.x-W_e7.x<=-4 and W_e9.x-W_e8.x<=-4 and W_e9.x-W_e0a.x<=-8 and W_e9.x-W_e0b.x<=-8 and W_e9.x-W_e0c.x<=-8 and W_e0a.x<=9 and W_e0a.x-W_e4.x<=4 and W_e0a.x-W_e5.x<=4 and W_e0a.x-W_e7.x<=4 and W_e0a.x-W_e8.x<=4 and W_e0a.x-W_e9.x<=9 and W_e0a.x-W_e0b.x<=0 and W_e0a.x-W_e0c.x<=0 and W_e0b.x<=9 and W_e0b.x-W_e4.x<=4 and W_e0b.x-W_e5.x<=4 and W_e0b.x-W_e7.x<=4 and W_e0b.x-W_e8.x<=4 and W_e0b.x-W_e9.x<=9 and W_e0b.x-W_e0a.x<=0 and W_e0b.x-W_e0c.x<=0 and W_e0c.x<=9 and W_e0c.x-W_e4.x<=4 and W_e0c.x-W_e5.x<=4 and W_e0c.x-W_e7.x<=4 and W_e0c.x-W_e8.x<=4 and W_e0c.x-W_e9.x<=9 and W_e0c.x-W_e0a.x<=0 and W_e0c.x-W_e0b.x<=0
+
+Transition:
+  SU.apply_Start2_0->SU.wait { 1, sched_e8!, 1 }
+  W_e8.idle->W_e8.active { 1, sched_e8?, x := 0 }
+
+State:
+( W_e4.idle W_e5.idle W_e7.idle W_e8.active W_e9.idle W_e0a.done W_e0b.done W_e0c.done SU.wait )
+q1=1 a1=1 q2=0 a2=0 dep=1
+W_e4.x>=4 and W_e5.x>=4 and W_e7.x>=4 and W_e0a.x>=8 and W_e0b.x>=8 and W_e0c.x>=8 and W_e4.x<=10 and W_e4.x-W_e5.x<=0 and W_e4.x-W_e7.x<=0 and W_e4.x-W_e8.x<=5 and W_e4.x-W_e9.x<=5 and W_e4.x-W_e0a.x<=-4 and W_e4.x-W_e0b.x<=-4 and W_e4.x-W_e0c.x<=-4 and W_e5.x<=10 and W_e5.x-W_e4.x<=0 and W_e5.x-W_e7.x<=0 and W_e5.x-W_e8.x<=5 and W_e5.x-W_e9.x<=5 and W_e5.x-W_e0a.x<=-4 and W_e5.x-W_e0b.x<=-4 and W_e5.x-W_e0c.x<=-4 and W_e7.x<=10 and W_e7.x-W_e4.x<=1 and W_e7.x-W_e5.x<=1 and W_e7.x-W_e8.x<=5 and W_e7.x-W_e9.x<=5 and W_e7.x-W_e0a.x<=-3 and W_e7.x-W_e0b.x<=-3 and W_e7.x-W_e0c.x<=-3 and W_e8.x<=5 and W_e8.x-W_e4.x<=-4 and W_e8.x-W_e5.x<=-4 and W_e8.x-W_e7.x<=-4 and W_e8.x-W_e9.x<=0 and W_e8.x-W_e0a.x<=-8 and W_e8.x-W_e0b.x<=-8 and W_e8.x-W_e0c.x<=-8 and W_e9.x<=5 and W_e9.x-W_e4.x<=-4 and W_e9.x-W_e5.x<=-4 and W_e9.x-W_e7.x<=-4 and W_e9.x-W_e8.x<=0 and W_e9.x-W_e0a.x<=-8 and W_e9.x-W_e0b.x<=-8 and W_e9.x-W_e0c.x<=-8 and W_e0a.x<=14 and W_e0a.x-W_e4.x<=4 and W_e0a.x-W_e5.x<=4 and W_e0a.x-W_e7.x<=4 and W_e0a.x-W_e8.x<=9 and W_e0a.x-W_e9.x<=9 and W_e0a.x-W_e0b.x<=0 and W_e0a.x-W_e0c.x<=0 and W_e0b.x<=14 and W_e0b.x-W_e4.x<=4 and W_e0b.x-W_e5.x<=4 and W_e0b.x-W_e7.x<=4 and W_e0b.x-W_e8.x<=9 and W_e0b.x-W_e9.x<=9 and W_e0b.x-W_e0a.x<=0 and W_e0b.x-W_e0c.x<=0 and W_e0c.x<=14 and W_e0c.x-W_e4.x<=4 and W_e0c.x-W_e5.x<=4 and W_e0c.x-W_e7.x<=4 and W_e0c.x-W_e8.x<=9 and W_e0c.x-W_e9.x<=9 and W_e0c.x-W_e0a.x<=0 and W_e0c.x-W_e0b.x<=0
+
+Transition:
+  W_e8.active->W_e8.idle { x >= 3, fire_e8!, 1 }
+  SU.wait->SU.apply_Finish2_0 { 1, fire_e8?, a2 := a2 + 1 > 1 ? 1 : a2 + 1, dep := dep + 1 > 3 ? 3 : dep + 1 }
+
+State:
+( W_e4.idle W_e5.idle W_e7.idle W_e8.idle W_e9.idle W_e0a.done W_e0b.done W_e0c.done SU.apply_Finish2_0 )
+q1=1 a1=1 q2=0 a2=1 dep=2
+W_e4.x>=7 and W_e5.x>=7 and W_e7.x>=7 and W_e8.x>=3 and W_e9.x>=3 and W_e0a.x>=11 and W_e0b.x>=11 and W_e0c.x>=11 and W_e4.x<=10 and W_e4.x-W_e5.x<=0 and W_e4.x-W_e7.x<=0 and W_e4.x-W_e8.x<=5 and W_e4.x-W_e9.x<=5 and W_e4.x-W_e0a.x<=-4 and W_e4.x-W_e0b.x<=-4 and W_e4.x-W_e0c.x<=-4 and W_e5.x<=10 and W_e5.x-W_e4.x<=0 and W_e5.x-W_e7.x<=0 and W_e5.x-W_e8.x<=5 and W_e5.x-W_e9.x<=5 and W_e5.x-W_e0a.x<=-4 and W_e5.x-W_e0b.x<=-4 and W_e5.x-W_e0c.x<=-4 and W_e7.x<=10 and W_e7.x-W_e4.x<=1 and W_e7.x-W_e5.x<=1 and W_e7.x-W_e8.x<=5 and W_e7.x-W_e9.x<=5 and W_e7.x-W_e0a.x<=-3 and W_e7.x-W_e0b.x<=-3 and W_e7.x-W_e0c.x<=-3 and W_e8.x<=5 and W_e8.x-W_e4.x<=-4 and W_e8.x-W_e5.x<=-4 and W_e8.x-W_e7.x<=-4 and W_e8.x-W_e9.x<=0 and W_e8.x-W_e0a.x<=-8 and W_e8.x-W_e0b.x<=-8 and W_e8.x-W_e0c.x<=-8 and W_e9.x<=5 and W_e9.x-W_e4.x<=-4 and W_e9.x-W_e5.x<=-4 and W_e9.x-W_e7.x<=-4 and W_e9.x-W_e8.x<=0 and W_e9.x-W_e0a.x<=-8 and W_e9.x-W_e0b.x<=-8 and W_e9.x-W_e0c.x<=-8 and W_e0a.x<=14 and W_e0a.x-W_e4.x<=4 and W_e0a.x-W_e5.x<=4 and W_e0a.x-W_e7.x<=4 and W_e0a.x-W_e8.x<=9 and W_e0a.x-W_e9.x<=9 and W_e0a.x-W_e0b.x<=0 and W_e0a.x-W_e0c.x<=0 and W_e0b.x<=14 and W_e0b.x-W_e4.x<=4 and W_e0b.x-W_e5.x<=4 and W_e0b.x-W_e7.x<=4 and W_e0b.x-W_e8.x<=9 and W_e0b.x-W_e9.x<=9 and W_e0b.x-W_e0a.x<=0 and W_e0b.x-W_e0c.x<=0 and W_e0c.x<=14 and W_e0c.x-W_e4.x<=4 and W_e0c.x-W_e5.x<=4 and W_e0c.x-W_e7.x<=4 and W_e0c.x-W_e8.x<=9 and W_e0c.x-W_e9.x<=9 and W_e0c.x-W_e0a.x<=0 and W_e0c.x-W_e0b.x<=0
+
+Transition:
+  SU.apply_Finish2_0->SU.wait { 1, sched_e9!, 1 }
+  W_e9.idle->W_e9.idle { q2 < 1 || a2 < 1, sched_e9?, 1 }
+
+State:
+( W_e4.idle W_e5.idle W_e7.idle W_e8.idle W_e9.idle W_e0a.done W_e0b.done W_e0c.done SU.wait )
+q1=1 a1=1 q2=0 a2=1 dep=2
+W_e4.x>=7 and W_e5.x>=7 and W_e7.x>=7 and W_e8.x>=3 and W_e9.x>=3 and W_e0a.x>=11 and W_e0b.x>=11 and W_e0c.x>=11 and W_e4.x-W_e5.x<=0 and W_e4.x-W_e7.x<=0 and W_e4.x-W_e8.x<=5 and W_e4.x-W_e9.x<=5 and W_e4.x-W_e0a.x<=-4 and W_e4.x-W_e0b.x<=-4 and W_e4.x-W_e0c.x<=-4 and W_e5.x-W_e4.x<=0 and W_e5.x-W_e7.x<=0 and W_e5.x-W_e8.x<=5 and W_e5.x-W_e9.x<=5 and W_e5.x-W_e0a.x<=-4 and W_e5.x-W_e0b.x<=-4 and W_e5.x-W_e0c.x<=-4 and W_e7.x-W_e4.x<=1 and W_e7.x-W_e5.x<=1 and W_e7.x-W_e8.x<=5 and W_e7.x-W_e9.x<=5 and W_e7.x-W_e0a.x<=-3 and W_e7.x-W_e0b.x<=-3 and W_e7.x-W_e0c.x<=-3 and W_e8.x-W_e4.x<=-4 and W_e8.x-W_e5.x<=-4 and W_e8.x-W_e7.x<=-4 and W_e8.x-W_e9.x<=0 and W_e8.x-W_e0a.x<=-8 and W_e8.x-W_e0b.x<=-8 and W_e8.x-W_e0c.x<=-8 and W_e9.x-W_e4.x<=-4 and W_e9.x-W_e5.x<=-4 and W_e9.x-W_e7.x<=-4 and W_e9.x-W_e8.x<=0 and W_e9.x-W_e0a.x<=-8 and W_e9.x-W_e0b.x<=-8 and W_e9.x-W_e0c.x<=-8 and W_e0a.x-W_e4.x<=4 and W_e0a.x-W_e5.x<=4 and W_e0a.x-W_e7.x<=4 and W_e0a.x-W_e8.x<=9 and W_e0a.x-W_e9.x<=9 and W_e0a.x-W_e0b.x<=0 and W_e0a.x-W_e0c.x<=0 and W_e0b.x-W_e4.x<=4 and W_e0b.x-W_e5.x<=4 and W_e0b.x-W_e7.x<=4 and W_e0b.x-W_e8.x<=9 and W_e0b.x-W_e9.x<=9 and W_e0b.x-W_e0a.x<=0 and W_e0b.x-W_e0c.x<=0 and W_e0c.x-W_e4.x<=4 and W_e0c.x-W_e5.x<=4 and W_e0c.x-W_e7.x<=4 and W_e0c.x-W_e8.x<=9 and W_e0c.x-W_e9.x<=9 and W_e0c.x-W_e0a.x<=0 and W_e0c.x-W_e0b.x<=0
+

@@ -1,0 +1,47 @@
+Options for the verification:
+  Generating some trace
+  Search order is breadth first
+  Using conservative space optimisation
+  Seed is 1790246229
+  State space representation uses minimal constraint systems with future testing
+  Using HashMap + Compress integers for discrete state storage
+[2K
+Verifying formula 1 at /Users/syks/simasm/experiments/project_3/eg2ta/queries/tandem_4__frontier.q:2
+ -- Throughput: 156247 states/sec, Load: 1332 states[K
+ -- Throughput: 135865 states/sec, Load: 2134 states[K
+ -- Throughput: 129303 states/sec, Load: 2500 states[K
+ -- Throughput: 122966 states/sec, Load: 2821 states[K
+ -- Throughput: 122143 states/sec, Load: 3144 states[K
+ -- Throughput: 118105 states/sec, Load: 3837 states[K
+ -- Throughput: 113437 states/sec, Load: 3392 states[K
+ -- Throughput: 117965 states/sec, Load: 3922 states[K
+ -- Throughput: 115550 states/sec, Load: 4511 states[K
+ -- Throughput: 105961 states/sec, Load: 4124 states[K
+ -- Throughput: 109750 states/sec, Load: 4146 states[K
+ -- Throughput: 112715 states/sec, Load: 4488 states[K
+ -- Throughput: 107329 states/sec, Load: 5018 states[K
+ -- Throughput: 105790 states/sec, Load: 4319 states[K
+ -- Throughput: 106980 states/sec, Load: 4413 states[K
+ -- Throughput: 110762 states/sec, Load: 4910 states[K
+ -- Throughput: 104163 states/sec, Load: 4710 states[K
+ -- Throughput: 83842 states/sec, Load: 4225 states[K
+ -- Throughput: 83756 states/sec, Load: 4219 states[K
+ -- Throughput: 104265 states/sec, Load: 4519 states[K
+ -- Throughput: 94247 states/sec, Load: 4465 states[K
+ -- Throughput: 96366 states/sec, Load: 3981 states[K
+ -- Throughput: 103624 states/sec, Load: 3678 states[K
+ -- Throughput: 99593 states/sec, Load: 3543 states[K
+ -- Throughput: 100405 states/sec, Load: 3516 states[K
+ -- Throughput: 88514 states/sec, Load: 2858 states[K
+ -- Throughput: 103871 states/sec, Load: 3005 states[K
+ -- Throughput: 101839 states/sec, Load: 2439 states[K
+ -- Throughput: 106738 states/sec, Load: 2095 states[K
+ -- Throughput: 106286 states/sec, Load: 1207 states[K
+ -- Throughput: 111292 states/sec, Load: 630 states[K
+[2K -- Formula is satisfied.
+ -- States stored : 598737 states
+ -- States explored : 3586347 states
+ -- CPU user time used : 32125 ms
+ -- Virtual memory used : 68346144 KiB
+ -- Resident memory used : 195852 KiB
+

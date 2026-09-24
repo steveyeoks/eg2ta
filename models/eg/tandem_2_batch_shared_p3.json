@@ -1,0 +1,179 @@
+{
+ "name": "tandem_2_batch_shared_p3",
+ "variables": {
+  "q1": {
+   "init": 0,
+   "bound": 5
+  },
+  "q2": {
+   "init": 0,
+   "bound": 5
+  },
+  "r": {
+   "init": 1,
+   "bound": 1
+  },
+  "s1": {
+   "init": 0,
+   "bound": 1
+  },
+  "s2": {
+   "init": 0,
+   "bound": 1
+  },
+  "dep": {
+   "init": 0,
+   "bound": 2
+  }
+ },
+ "vertices": {
+  "Run": [],
+  "Arrive": [
+   "q1 += 1"
+  ],
+  "Check1": [],
+  "Check2": [],
+  "Start1": [
+   "q1 -= 1",
+   "r -= 1",
+   "s1 += 1"
+  ],
+  "Finish1": [
+   "r += 1",
+   "s1 -= 1",
+   "q2 += 1"
+  ],
+  "Start2": [
+   "q2 -= 1",
+   "r -= 1",
+   "s2 += 1"
+  ],
+  "Finish2": [
+   "r += 1",
+   "s2 -= 1",
+   "dep += 1"
+  ]
+ },
+ "edges": [
+  {
+   "id": "e0a",
+   "from": "Run",
+   "to": "Arrive",
+   "delay": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "e0b",
+   "from": "Run",
+   "to": "Arrive",
+   "delay": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "e3",
+   "from": "Arrive",
+   "to": "Start1",
+   "delay": [
+    0,
+    0
+   ],
+   "guard": [
+    "r >= 1"
+   ]
+  },
+  {
+   "id": "e4",
+   "from": "Start1",
+   "to": "Finish1",
+   "delay": [
+    3,
+    5
+   ]
+  },
+  {
+   "id": "e5",
+   "from": "Start2",
+   "to": "Finish2",
+   "delay": [
+    3,
+    5
+   ]
+  },
+  {
+   "id": "e6",
+   "from": "Finish1",
+   "to": "Check1",
+   "delay": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "e7",
+   "from": "Finish1",
+   "to": "Check2",
+   "delay": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "e8",
+   "from": "Finish2",
+   "to": "Check1",
+   "delay": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "e9",
+   "from": "Finish2",
+   "to": "Check2",
+   "delay": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "e10",
+   "from": "Check1",
+   "to": "Start1",
+   "delay": [
+    0,
+    0
+   ],
+   "guard": [
+    "q1 >= 1",
+    "r >= 1"
+   ]
+  },
+  {
+   "id": "e11",
+   "from": "Check2",
+   "to": "Start2",
+   "delay": [
+    0,
+    0
+   ],
+   "guard": [
+    "q2 >= 1",
+    "r >= 1"
+   ]
+  }
+ ],
+ "branches": {},
+ "priority": [
+  "e6",
+  "e8",
+  "e7",
+  "e9",
+  "e10",
+  "e11",
+  "e3"
+ ]
+}

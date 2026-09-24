@@ -1,0 +1,3 @@
+query_id,model,xml_sha,query,expected,verdict,wall_s,cpu_s,resident_mb,virtual_mb,states_stored,states_explored,witness_len,timeout_s,timestamp
+tandem_4__frontier,tandem_4,d7a9c4c984f8,A[] true,,SAT,33.380,32.225,234.332,66871.281,598737,3586347,,600.0,2026-09-24T20:29:36
+tandem_5__frontier,tandem_5,eee26bbea80d,A[] true,,TIMEOUT,600.085,,,,,,,600.0,2026-09-24T20:39:36

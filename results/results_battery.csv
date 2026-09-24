@@ -1,0 +1,57 @@
+query_id,model,xml_sha,query,expected,verdict,wall_s,cpu_s,resident_mb,virtual_mb,states_stored,states_explored,witness_len,timeout_s,timestamp
+tandem_1__acc,tandem_1,f0e37568c6cf,E<> (SU.wait && q1 == 2),SAT,SAT,0.071,0.001,19.848,66388.281,13,38,13,600.0,2026-09-24T20:28:58
+tandem_1__cost,tandem_1,f0e37568c6cf,(SU.wait && (q1 >= 1 && a1 >= 1)) --> (SU.wait && (!(q1 >= 1 && a1 >= 1))),SAT,SAT,0.052,0.001,20.906,66370.277,51,294,,600.0,2026-09-24T20:28:58
+tandem_1__zone,tandem_1,f0e37568c6cf,A[] true,SAT,SAT,0.050,0.001,20.250,66507.273,51,226,,600.0,2026-09-24T20:28:58
+tandem_1_batch__nic,tandem_1_batch,a2390fef8fa7,(SU.wait && (q1 >= 1 && a1 >= 1)) --> (SU.wait && (q1 == 0 || a1 == 0)),SAT,SAT,0.051,0.001,21.055,66507.281,22,35,,600.0,2026-09-24T20:28:58
+tandem_1_batch__stall,tandem_1_batch,a2390fef8fa7,E<> (SU.wait && W_e4.idle && W_e5.idle && W_e6.idle && W_e0a.done && W_e0b.done && W_e0c.done && dep < 3),UNSAT,UNSAT,0.050,0.001,20.340,66380.277,22,27,,600.0,2026-09-24T20:28:58
+tandem_1_batch__term,tandem_1_batch,a2390fef8fa7,E<> (SU.wait && W_e4.idle && W_e5.idle && W_e6.idle && W_e0a.done && W_e0b.done && W_e0c.done && dep == 3),SAT,SAT,0.053,0.001,20.414,66507.281,22,26,9,600.0,2026-09-24T20:28:58
+tandem_1_batch__zone,tandem_1_batch,a2390fef8fa7,A[] true,SAT,SAT,0.050,0.001,20.266,66507.273,22,27,,600.0,2026-09-24T20:28:58
+tandem_1_batch_norestart__nic,tandem_1_batch_norestart,836b7de6568b,(SU.wait && (q1 >= 1 && a1 >= 1)) --> (SU.wait && (q1 == 0 || a1 == 0)),UNSAT,UNSAT,0.050,0.001,20.883,66370.281,16,27,7,600.0,2026-09-24T20:28:58
+tandem_1_batch_norestart__stall,tandem_1_batch_norestart,836b7de6568b,E<> (SU.wait && W_e4.idle && W_e5.idle && W_e0a.done && W_e0b.done && W_e0c.done && dep < 3),SAT,SAT,0.052,0.000,20.215,66370.277,16,19,7,600.0,2026-09-24T20:28:58
+tandem_1_batch_norestart__zone,tandem_1_batch_norestart,836b7de6568b,A[] true,SAT,SAT,0.049,0.001,19.637,66371.270,19,25,,600.0,2026-09-24T20:28:58
+tandem_2__acc,tandem_2,fdabb5ea5504,E<> (SU.wait && q2 == 2),SAT,SAT,0.053,0.001,20.363,66370.281,51,98,15,600.0,2026-09-24T20:28:58
+tandem_2__cost,tandem_2,fdabb5ea5504,(SU.wait && (q1 >= 1 && a1 >= 1 || q2 >= 1 && a2 >= 1)) --> (SU.wait && (!(q1 >= 1 && a1 >= 1 || q2 >= 1 && a2 >= 1))),SAT,SAT,0.075,0.024,20.949,66370.277,989,6712,,600.0,2026-09-24T20:28:58
+tandem_2__ord_P1,tandem_2,fdabb5ea5504,E<> (SU.wait && q2 == 2),SAT,SAT,0.065,0.001,20.070,66655.281,51,98,15,600.0,2026-09-24T20:28:59
+tandem_2__ord_P2,tandem_2,fdabb5ea5504,E<> (SU.wait && q1 >= 2 && q2 >= 1),SAT,SAT,0.058,0.001,20.461,66507.277,61,133,19,600.0,2026-09-24T20:28:59
+tandem_2__stall,tandem_2,fdabb5ea5504,E<> (SU.wait && W_e2.idle && W_e3.idle && W_e4.idle && W_e5.idle && W_e6.idle && W_e7.idle && W_e8.idle && W_e0.done),UNSAT,UNSAT,0.067,0.014,20.762,66370.277,989,5039,,600.0,2026-09-24T20:28:59
+tandem_2__zone,tandem_2,fdabb5ea5504,A[] true,SAT,SAT,0.065,0.014,20.105,66371.273,989,5039,,600.0,2026-09-24T20:28:59
+tandem_2_alt__ord_P1,tandem_2_alt,0d1819a99084,E<> (SU.wait && q2 == 2),SAT,SAT,0.054,0.001,20.363,66370.281,52,99,15,600.0,2026-09-24T20:28:59
+tandem_2_alt__ord_P2,tandem_2_alt,0d1819a99084,E<> (SU.wait && q1 >= 2 && q2 >= 1),SAT,SAT,0.053,0.001,19.891,66370.277,62,135,19,600.0,2026-09-24T20:28:59
+tandem_2_alt__zone,tandem_2_alt,0d1819a99084,A[] true,SAT,SAT,0.064,0.014,20.164,66370.273,998,5071,,600.0,2026-09-24T20:28:59
+tandem_2_batch__nic,tandem_2_batch,94c9d7b6894f,(SU.wait && (q1 >= 1 && a1 >= 1)) --> (SU.wait && (q1 == 0 || a1 == 0)),SAT,SAT,0.052,0.001,20.445,66234.281,71,97,,600.0,2026-09-24T20:28:59
+tandem_2_batch__stall,tandem_2_batch,94c9d7b6894f,E<> (SU.wait && W_e4.idle && W_e5.idle && W_e6.idle && W_e7.idle && W_e8.idle && W_e9.idle && W_e0a.done && W_e0b.done && W_e0c.done && dep < 3),UNSAT,UNSAT,0.054,0.001,20.363,66370.277,71,83,,600.0,2026-09-24T20:28:59
+tandem_2_batch__term,tandem_2_batch,94c9d7b6894f,E<> (SU.wait && W_e4.idle && W_e5.idle && W_e6.idle && W_e7.idle && W_e8.idle && W_e9.idle && W_e0a.done && W_e0b.done && W_e0c.done && dep == 3),SAT,SAT,0.055,0.001,20.422,66371.281,71,82,15,600.0,2026-09-24T20:28:59
+tandem_2_batch__zone,tandem_2_batch,94c9d7b6894f,A[] true,SAT,SAT,0.061,0.001,19.844,66380.273,71,83,,600.0,2026-09-24T20:28:59
+tandem_2_batch_norestart__nic,tandem_2_batch_norestart,14096277b2a1,(SU.wait && (q1 >= 1 && a1 >= 1)) --> (SU.wait && (q1 == 0 || a1 == 0)),UNSAT,UNSAT,0.054,0.001,20.547,66370.281,37,58,11,600.0,2026-09-24T20:28:59
+tandem_2_batch_norestart__stall,tandem_2_batch_norestart,14096277b2a1,E<> (SU.wait && W_e4.idle && W_e5.idle && W_e7.idle && W_e8.idle && W_e9.idle && W_e0a.done && W_e0b.done && W_e0c.done && dep < 3),SAT,SAT,0.062,0.000,20.453,66507.277,55,61,11,600.0,2026-09-24T20:28:59
+tandem_2_batch_norestart__zone,tandem_2_batch_norestart,14096277b2a1,A[] true,SAT,SAT,0.050,0.001,19.750,66370.273,69,78,,600.0,2026-09-24T20:28:59
+tandem_2_batch_permuted__nic,tandem_2_batch_permuted,f0bc63aecd2d,(SU.wait && (q1 >= 1 && a1 >= 1)) --> (SU.wait && (q1 == 0 || a1 == 0)),SAT,SAT,0.054,0.001,20.582,66370.281,69,103,,600.0,2026-09-24T20:28:59
+tandem_2_batch_permuted__zone,tandem_2_batch_permuted,f0bc63aecd2d,A[] true,SAT,SAT,0.053,0.001,20.207,66370.273,69,83,,600.0,2026-09-24T20:28:59
+tandem_2_batch_shared_p1__ord_P1,tandem_2_batch_shared_p1,6719a703bfd2,E<> (SU.wait && q1 == 0 && s1 == 1 && q2 == 1 && s2 == 0),SAT,SAT,0.054,0.001,20.004,66370.281,11,13,6,600.0,2026-09-24T20:28:59
+tandem_2_batch_shared_p1__ord_P2,tandem_2_batch_shared_p1,6719a703bfd2,E<> (SU.wait && q1 == 1 && s1 == 0 && q2 == 0 && s2 == 1),UNSAT,UNSAT,0.052,0.001,20.449,66371.281,35,41,,600.0,2026-09-24T20:28:59
+tandem_2_batch_shared_p1__zone,tandem_2_batch_shared_p1,6719a703bfd2,A[] true,SAT,SAT,0.056,0.001,19.742,66242.273,35,41,,600.0,2026-09-24T20:29:00
+tandem_2_batch_shared_p2__ord_P1,tandem_2_batch_shared_p2,45e428a0b755,E<> (SU.wait && q1 == 0 && s1 == 1 && q2 == 1 && s2 == 0),UNSAT,UNSAT,0.056,0.001,19.898,66242.281,35,41,,600.0,2026-09-24T20:29:00
+tandem_2_batch_shared_p2__ord_P2,tandem_2_batch_shared_p2,45e428a0b755,E<> (SU.wait && q1 == 1 && s1 == 0 && q2 == 0 && s2 == 1),SAT,SAT,0.054,0.001,20.578,66507.281,11,13,6,600.0,2026-09-24T20:29:00
+tandem_2_batch_shared_p2__zone,tandem_2_batch_shared_p2,45e428a0b755,A[] true,SAT,SAT,0.050,0.001,19.844,66370.273,35,41,,600.0,2026-09-24T20:29:00
+tandem_2_batch_shared_p3__ord_over,tandem_2_batch_shared_p3,05a4844d616e,E<> (SU.wait && s1 == 1 && s2 == 1)  [r := -1],RANGE,RANGE,0.060,,,,,,,600.0,2026-09-24T20:29:00
+tandem_2_batch_shared_p3__zone,tandem_2_batch_shared_p3,05a4844d616e,A[] true  [r := -1],RANGE,RANGE,0.053,,,,,,,600.0,2026-09-24T20:29:00
+tandem_2_batch_shared_p3_wide__ord_over,tandem_2_batch_shared_p3_wide,67ee0e7bad6a,E<> (r < 0),SAT,SAT,0.053,0.001,20.379,66371.273,14,16,8,600.0,2026-09-24T20:29:00
+tandem_2_batch_shared_p3_wide__zone,tandem_2_batch_shared_p3_wide,67ee0e7bad6a,A[] true,SAT,SAT,0.050,0.001,20.414,66507.273,45,53,,600.0,2026-09-24T20:29:00
+tandem_2_c2__acc_busy,tandem_2_c2,9ed73a06becf,E<> (SU.wait && a1 == 0),SAT,SAT,0.052,0.001,19.984,66379.281,16,17,4,600.0,2026-09-24T20:29:00
+tandem_2_c2__acc_queue,tandem_2_c2,9ed73a06becf,E<> (SU.wait && q1 == 2),UNSAT,UNSAT,0.051,0.001,19.867,66370.281,158,177,,600.0,2026-09-24T20:29:00
+tandem_2_c2__cost,tandem_2_c2,9ed73a06becf,(SU.wait && (q1 >= 1 && a1 >= 1 || q2 >= 1 && a2 >= 1)) --> (SU.wait && (!(q1 >= 1 && a1 >= 1 || q2 >= 1 && a2 >= 1))),SAT,SAT,0.052,0.001,20.621,66370.277,158,243,,600.0,2026-09-24T20:29:00
+tandem_2_c2__zone,tandem_2_c2,9ed73a06becf,A[] true,SAT,SAT,0.051,0.001,20.281,66370.273,158,177,,600.0,2026-09-24T20:29:00
+tandem_2_c5__acc_all,tandem_2_c5,e223599952ac,E<> (SU.wait && a1 == 0),UNSAT,UNSAT,0.057,0.006,21.164,66370.281,1085,1173,,600.0,2026-09-24T20:29:00
+tandem_2_c5__acc_two,tandem_2_c5,e223599952ac,E<> (SU.wait && a1 == 3),SAT,SAT,0.053,0.001,20.547,66370.281,31,29,4,600.0,2026-09-24T20:29:00
+tandem_2_c5__cost,tandem_2_c5,e223599952ac,(SU.wait && (q1 >= 1 && a1 >= 1 || q2 >= 1 && a2 >= 1)) --> (SU.wait && (!(q1 >= 1 && a1 >= 1 || q2 >= 1 && a2 >= 1))),SAT,SAT,0.068,0.010,21.465,66383.277,1085,1845,,600.0,2026-09-24T20:29:00
+tandem_2_c5__zone,tandem_2_c5,e223599952ac,A[] true,SAT,SAT,0.067,0.007,20.660,66517.273,1085,1173,,600.0,2026-09-24T20:29:00
+tandem_3__acc,tandem_3,7e67432f99c9,E<> (SU.wait && q3 == 2),SAT,SAT,0.071,0.003,20.691,66516.281,299,464,23,600.0,2026-09-24T20:29:00
+tandem_3__cost,tandem_3,7e67432f99c9,(SU.wait && (q1 >= 1 && a1 >= 1 || q2 >= 1 && a2 >= 1 || q3 >= 1 && a3 >= 1)) --> (SU.wait && (!(q1 >= 1 && a1 >= 1 || q2 >= 1 && a2 >= 1 || q3 >= 1 && a3 >= 1))),SAT,SAT,0.974,0.909,33.027,66638.277,22316,166603,,600.0,2026-09-24T20:29:01
+tandem_3__zone,tandem_3,7e67432f99c9,A[] true,SAT,SAT,0.555,0.499,32.246,66509.273,22316,124443,,600.0,2026-09-24T20:29:02
+tandem_3_batch__nic,tandem_3_batch,1751d9a4a519,(SU.wait && (q1 >= 1 && a1 >= 1)) --> (SU.wait && (q1 == 0 || a1 == 0)),SAT,SAT,0.052,0.001,20.594,66242.281,150,184,,600.0,2026-09-24T20:29:02
+tandem_3_batch__stall,tandem_3_batch,1751d9a4a519,E<> (SU.wait && W_e4.idle && W_e5.idle && W_e6.idle && W_e7.idle && W_e8.idle && W_e9.idle && W_e10.idle && W_e11.idle && W_e12.idle && W_e0a.done && W_e0b.done && W_e0c.done && dep < 3),UNSAT,UNSAT,0.051,0.001,20.512,66371.277,150,168,,600.0,2026-09-24T20:29:02
+tandem_3_batch__term,tandem_3_batch,1751d9a4a519,E<> (SU.wait && W_e4.idle && W_e5.idle && W_e6.idle && W_e7.idle && W_e8.idle && W_e9.idle && W_e10.idle && W_e11.idle && W_e12.idle && W_e0a.done && W_e0b.done && W_e0c.done && dep == 3),SAT,SAT,0.059,0.002,19.973,66242.281,150,167,21,600.0,2026-09-24T20:29:02
+tandem_3_batch__zone,tandem_3_batch,1751d9a4a519,A[] true,SAT,SAT,0.062,0.001,20.348,66370.273,150,168,,600.0,2026-09-24T20:29:02
+tandem_3_batch_norestart__nic,tandem_3_batch_norestart,f200fd8d218f,(SU.wait && (q1 >= 1 && a1 >= 1)) --> (SU.wait && (q1 == 0 || a1 == 0)),UNSAT,UNSAT,0.053,0.001,21.098,66370.281,38,71,15,600.0,2026-09-24T20:29:02
+tandem_3_batch_norestart__stall,tandem_3_batch_norestart,f200fd8d218f,E<> (SU.wait && W_e4.idle && W_e5.idle && W_e7.idle && W_e8.idle && W_e9.idle && W_e10.idle && W_e11.idle && W_e12.idle && W_e0a.done && W_e0b.done && W_e0c.done && dep < 3),SAT,SAT,0.053,0.001,20.008,66370.277,131,140,15,600.0,2026-09-24T20:29:02
+tandem_3_batch_norestart__zone,tandem_3_batch_norestart,f200fd8d218f,A[] true,SAT,SAT,0.053,0.002,20.312,66370.273,162,176,,600.0,2026-09-24T20:29:02

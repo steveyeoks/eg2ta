@@ -1,0 +1,16 @@
+Options for the verification:
+  Generating some trace
+  Search order is breadth first
+  Using conservative space optimisation
+  Seed is 1790246290
+  State space representation uses minimal constraint systems with future testing
+  Using HashMap + Compress integers for discrete state storage
+[2K
+Verifying formula 1 at /Users/syks/simasm/experiments/project_3/eg2ta/queries/tandem_2_c5__zone.q:2
+[2K -- Formula is satisfied.
+ -- States stored : 1085 states
+ -- States explored : 1173 states
+ -- CPU user time used : 7 ms
+ -- Virtual memory used : 68252952 KiB
+ -- Resident memory used : 21800 KiB
+

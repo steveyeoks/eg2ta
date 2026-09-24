@@ -1,0 +1,7 @@
+**Table 5.4. Exhaustive exploration of model (a) by size, A[] true on the tandem n queue; the timeout run was stopped at the stated budget.**
+
+| $n$ | 1 | 2 | 3 | 4 | 5 |
+|---|---|---|---|---|---|
+| states stored | 51 | 989 | 22316 | 598737 | timeout |
+| wall time | 0.05 s | 0.07 s | 0.56 s | 33 s | 600 s |
+| resident memory | 20 MB | 20 MB | 32 MB | 234 MB |  |

@@ -1,0 +1,85 @@
+{
+ "name": "tandem_1_batch_norestart",
+ "variables": {
+  "q1": {
+   "init": 0,
+   "bound": 5
+  },
+  "a1": {
+   "init": 1,
+   "bound": 1
+  },
+  "dep": {
+   "init": 0,
+   "bound": 3
+  }
+ },
+ "vertices": {
+  "Run": [],
+  "Arrive": [
+   "q1 += 1"
+  ],
+  "Start1": [
+   "q1 -= 1",
+   "a1 -= 1"
+  ],
+  "Finish1": [
+   "a1 += 1",
+   "dep += 1"
+  ]
+ },
+ "edges": [
+  {
+   "id": "e0a",
+   "from": "Run",
+   "to": "Arrive",
+   "delay": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "e0b",
+   "from": "Run",
+   "to": "Arrive",
+   "delay": [
+    4,
+    4
+   ]
+  },
+  {
+   "id": "e0c",
+   "from": "Run",
+   "to": "Arrive",
+   "delay": [
+    8,
+    8
+   ]
+  },
+  {
+   "id": "e4",
+   "from": "Arrive",
+   "to": "Start1",
+   "delay": [
+    0,
+    0
+   ],
+   "guard": [
+    "a1 >= 1"
+   ]
+  },
+  {
+   "id": "e5",
+   "from": "Start1",
+   "to": "Finish1",
+   "delay": [
+    3,
+    5
+   ]
+  }
+ ],
+ "branches": {},
+ "priority": [
+  "e4"
+ ]
+}

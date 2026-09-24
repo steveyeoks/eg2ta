@@ -1,0 +1,17 @@
+Options for the verification:
+  Generating some trace
+  Search order is breadth first
+  Using conservative space optimisation
+  Seed is 1790252940
+  State space representation uses minimal constraint systems with future testing
+  Using HashMap + Compress integers for discrete state storage
+[2K
+Verifying formula 1 at /Users/syks/simasm/experiments/project_3/eg2ta/queries/tandem_2_batch_shared_p3__ord_over.q:2
+[2K -- Aborted.
+ -- States stored : 13 states
+ -- States explored : 16 states
+ -- CPU user time used : 3 ms
+ -- Virtual memory used : 67964200 KiB
+ -- Resident memory used : 21676 KiB
+
+/Users/syks/simasm/experiments/project_3/eg2ta/models/uppaal/tandem_2_batch_shared_p3.xml:/nta/template[12]/transition[16]/label[2]:1: [error] Assignment of value '-1' to variable 'r' is out of range.

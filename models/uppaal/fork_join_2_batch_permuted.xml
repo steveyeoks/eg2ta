@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.5//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_5.dtd'>
+<nta>
+  <declaration>// tau(fork_join_2_batch_permuted): EG -&gt; NTA (Definitions 3.1 to 3.5)
+int[0,5] q1 = 0;
+int[0,1] a1 = 1;
+int[0,5] p1 = 0;
+int[0,5] q2 = 0;
+int[0,1] a2 = 1;
+int[0,5] p2 = 0;
+int[0,3] dep = 0;
+broadcast chan sched_e12, sched_e11, sched_e10, sched_e9, sched_e8, sched_e7, sched_e6, sched_e5, sched_e4;
+chan fire_e12, fire_e11, fire_e10, fire_e9, fire_e8, fire_e7, fire_e6, fire_e5, fire_e4, fire_e0c, fire_e0b, fire_e0a;
+chan priority fire_e10, fire_e7, fire_e0c, fire_e0b, fire_e0a &lt; fire_e4 &lt; fire_e5 &lt; fire_e6 &lt; fire_e8 &lt; fire_e9 &lt; fire_e11 &lt; fire_e12;</declaration>
+  <template>
+    <name>W_e12</name>
+    <declaration>clock x;</declaration>
+    <location id="id0" x="0" y="0">
+      <name x="-10" y="-30">idle</name>
+    </location>
+    <location id="id1" x="200" y="0">
+      <name x="190" y="-30">active</name>
+      <label kind="invariant" x="190" y="20">x &lt;= 0</label>
+    </location>
+    <init ref="id0"/>
+    <transition>
+      <source ref="id0"/>
+      <target ref="id1"/>
+      <label kind="guard">p1 &gt;= 1 &amp;&amp; p2 &gt;= 1</label>
+      <label kind="synchronisation">sched_e12?</label>
+      <label kind="assignment">x = 0</label>
+    </transition>
+    <transition>
+      <source ref="id0"/>
+      <target ref="id0"/>
+      <label kind="guard">p1 &lt; 1 || p2 &lt; 1</label>
+      <label kind="synchronisation">sched_e12?</label>
+      <nail x="-40" y="40"/>
+      <nail x="40" y="40"/>
+    </transition>
+    <transition>
+      <source ref="id1"/>
+      <target ref="id0"/>
+      <label kind="guard">x &gt;= 0</label>
+      <label kind="synchronisation">fire_e12!</label>
+    </transition>
+  </template>
+  <template>
+    <name>W_e11</name>
+    <declaration>clock x;</declaration>
+    <location id="id2" x="0" y="0">
+      <name x="-10" y="-30">idle</name>
+    </location>
+    <location id="id3" x="200" y="0">
+      <name x="190" y="-30">active</name>
+      <label kind="invariant" x="190" y="20">x &lt;= 0</label>
+    </location>
+    <init ref="id2"/>
+    <transition>
+      <source ref="id2"/>
+      <target ref="id3"/>
+      <label kind="guard">q2 &gt;= 1 &amp;&amp; a2 &gt;= 1</label>
+      <label kind="synchronisation">sched_e11?</label>
+      <label kind="assignment">x = 0</label>
+    </transition>
+    <transition>
+      <source ref="id2"/>
+      <target ref="id2"/>
+      <label kind="guard">q2 &lt; 1 || a2 &lt; 1</label>
+      <label kind="synchronisation">sched_e11?</label>
+      <nail x="-40" y="40"/>
+      <nail x="40" y="40"/>
+    </transition>
+    <transition>
+      <source ref="id3"/>
+      <target ref="id2"/>
+      <label kind="guard">x &gt;= 0</label>
+      <label kind="synchronisation">fire_e11!</label>
+    </transition>
+  </template>
+  <template>
+    <name>W_e10</name>
+    <declaration>clock x;</declaration>
+    <location id="id4" x="0" y="0">
+      <name x="-10" y="-30">idle</name>
+    </location>
+    <location id="id5" x="200" y="0">
+      <name x="190" y="-30">active</name>
+      <label kind="invariant" x="190" y="20">x &lt;= 5</label>
+    </location>
+    <init ref="id4"/>
+    <transition>
+      <source ref="id4"/>
+      <target ref="id5"/>
+      <label kind="synchronisation">sched_e10?</label>
+      <label kind="assignment">x = 0</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id4"/>
+      <label kind="guard">x &gt;= 3</label>
+      <label kind="synchronisation">fire_e10!</label>
+    </transition>
+  </template>
+  <template>
+    <name>W_e9</name>
+    <declaration>clock x;</declaration>
+    <location id="id6" x="0" y="0">
+      <name x="-10" y="-30">idle</name>
+    </location>
+    <location id="id7" x="200" y="0">
+      <name x="190" y="-30">active</name>
+      <label kind="invariant" x="190" y="20">x &lt;= 0</label>
+    </location>
+    <init ref="id6"/>
+    <transition>
+      <source ref="id6"/>
+      <target ref="id7"/>
+      <label kind="guard">p1 &gt;= 1 &amp;&amp; p2 &gt;= 1</label>
+      <label kind="synchronisation">sched_e9?</label>
+      <label kind="assignment">x = 0</label>
+    </transition>
+    <transition>
+      <source ref="id6"/>
+      <target ref="id6"/>
+      <label kind="guard">p1 &lt; 1 || p2 &lt; 1</label>
+      <label kind="synchronisation">sched_e9?</label>
+      <nail x="-40" y="40"/>
+      <nail x="40" y="40"/>
+    </transition>
+    <transition>
+      <source ref="id7"/>
+      <target ref="id6"/>
+      <label kind="guard">x &gt;= 0</label>
+      <label kind="synchronisation">fire_e9!</label>
+    </transition>
+  </template>
+  <template>
+    <name>W_e8</name>
+    <declaration>clock x;</declaration>
+    <location id="id8" x="0" y="0">
+      <name x="-10" y="-30">idle</name>
+    </location>
+    <location id="id9" x="200" y="0">
+      <name x="190" y="-30">active</name>
+      <label kind="invariant" x="190" y="20">x &lt;= 0</label>
+    </location>
+    <init ref="id8"/>
+    <transition>
+      <source ref="id8"/>
+      <target ref="id9"/>
+      <label kind="guard">q1 &gt;= 1 &amp;&amp; a1 &gt;= 1</label>
+      <label kind="synchronisation">sched_e8?</label>
+      <label kind="assignment">x = 0</label>
+    </transition>
+    <transition>
+      <source ref="id8"/>
+      <target ref="id8"/>
+      <label kind="guard">q1 &lt; 1 || a1 &lt; 1</label>
+      <label kind="synchronisation">sched_e8?</label>
+      <nail x="-40" y="40"/>
+      <nail x="40" y="40"/>
+    </transition>
+    <transition>
+      <source ref="id9"/>
+      <target ref="id8"/>
+      <label kind="guard">x &gt;= 0</label>
+      <label kind="synchronisation">fire_e8!</label>
+    </transition>
+  </template>
+  <template>
+    <name>W_e7</name>
+    <declaration>clock x;</declaration>
+    <location id="id10" x="0" y="0">
+      <name x="-10" y="-30">idle</name>
+    </location>
+    <location id="id11" x="200" y="0">
+      <name x="190" y="-30">active</name>
+      <label kind="invariant" x="190" y="20">x &lt;= 5</label>
+    </location>
+    <init ref="id10"/>
+    <transition>
+      <source ref="id10"/>
+      <target ref="id11"/>
+      <label kind="synchronisation">sched_e7?</label>
+      <label kind="assignment">x = 0</label>
+    </transition>
+    <transition>
+      <source ref="id11"/>
+      <target ref="id10"/>
+      <label kind="guard">x &gt;= 3</label>
+      <label kind="synchronisation">fire_e7!</label>
+    </transition>
+  </template>
+  <template>
+    <name>W_e6</name>
+    <declaration>clock x;</declaration>
+    <location id="id12" x="0" y="0">
+      <name x="-10" y="-30">idle</name>
+    </location>
+    <location id="id13" x="200" y="0">
+      <name x="190" y="-30">active</name>
+      <label kind="invariant" x="190" y="20">x &lt;= 0</label>
+    </location>
+    <init ref="id12"/>
+    <transition>
+      <source ref="id12"/>
+      <target ref="id13"/>
+      <label kind="guard">q2 &gt;= 1 &amp;&amp; a2 &gt;= 1</label>
+      <label kind="synchronisation">sched_e6?</label>
+      <label kind="assignment">x = 0</label>
+    </transition>
+    <transition>
+      <source ref="id12"/>
+      <target ref="id12"/>
+      <label kind="guard">q2 &lt; 1 || a2 &lt; 1</label>
+      <label kind="synchronisation">sched_e6?</label>
+      <nail x="-40" y="40"/>
+      <nail x="40" y="40"/>
+    </transition>
+    <transition>
+      <source ref="id13"/>
+      <target ref="id12"/>
+      <label kind="guard">x &gt;= 0</label>
+      <label kind="synchronisation">fire_e6!</label>
+    </transition>
+  </template>
+  <template>
+    <name>W_e5</name>
+    <declaration>clock x;</declaration>
+    <location id="id14" x="0" y="0">
+      <name x="-10" y="-30">idle</name>
+    </location>
+    <location id="id15" x="200" y="0">
+      <name x="190" y="-30">active</name>
+      <label kind="invariant" x="190" y="20">x &lt;= 0</label>
+    </location>
+    <init ref="id14"/>
+    <transition>
+      <source ref="id14"/>
+      <target ref="id15"/>
+      <label kind="guard">q1 &gt;= 1 &amp;&amp; a1 &gt;= 1</label>
+      <label kind="synchronisation">sched_e5?</label>
+      <label kind="assignment">x = 0</label>
+    </transition>
+    <transition>
+      <source ref="id14"/>
+      <target ref="id14"/>
+      <label kind="guard">q1 &lt; 1 || a1 &lt; 1</label>
+      <label kind="synchronisation">sched_e5?</label>
+      <nail x="-40" y="40"/>
+      <nail x="40" y="40"/>
+    </transition>
+    <transition>
+      <source ref="id15"/>
+      <target ref="id14"/>
+      <label kind="guard">x &gt;= 0</label>
+      <label kind="synchronisation">fire_e5!</label>
+    </transition>
+  </template>
+  <template>
+    <name>W_e4</name>
+    <declaration>clock x;</declaration>
+    <location id="id16" x="0" y="0">
+      <name x="-10" y="-30">idle</name>
+    </location>
+    <location id="id17" x="200" y="0">
+      <name x="190" y="-30">active</name>
+      <label kind="invariant" x="190" y="20">x &lt;= 0</label>
+    </location>
+    <init ref="id16"/>
+    <transition>
+      <source ref="id16"/>
+      <target ref="id17"/>
+      <label kind="synchronisation">sched_e4?</label>
+      <label kind="assignment">x = 0</label>
+    </transition>
+    <transition>
+      <source ref="id17"/>
+      <target ref="id16"/>
+      <label kind="guard">x &gt;= 0</label>
+      <label kind="synchronisation">fire_e4!</label>
+    </transition>
+  </template>
+  <template>
+    <name>W_e0c</name>
+    <declaration>clock x;</declaration>
+    <location id="id18" x="0" y="0">
+      <name x="-10" y="-30">active</name>
+      <label kind="invariant" x="-10" y="20">x &lt;= 8</label>
+    </location>
+    <location id="id19" x="200" y="0">
+      <name x="190" y="-30">done</name>
+    </location>
+    <init ref="id18"/>
+    <transition>
+      <source ref="id18"/>
+      <target ref="id19"/>
+      <label kind="guard">x &gt;= 8</label>
+      <label kind="synchronisation">fire_e0c!</label>
+    </transition>
+  </template>
+  <template>
+    <name>W_e0b</name>
+    <declaration>clock x;</declaration>
+    <location id="id20" x="0" y="0">
+      <name x="-10" y="-30">active</name>
+      <label kind="invariant" x="-10" y="20">x &lt;= 4</label>
+    </location>
+    <location id="id21" x="200" y="0">
+      <name x="190" y="-30">done</name>
+    </location>
+    <init ref="id20"/>
+    <transition>
+      <source ref="id20"/>
+      <target ref="id21"/>
+      <label kind="guard">x &gt;= 4</label>
+      <label kind="synchronisation">fire_e0b!</label>
+    </transition>
+  </template>
+  <template>
+    <name>W_e0a</name>
+    <declaration>clock x;</declaration>
+    <location id="id22" x="0" y="0">
+      <name x="-10" y="-30">active</name>
+      <label kind="invariant" x="-10" y="20">x &lt;= 0</label>
+    </location>
+    <location id="id23" x="200" y="0">
+      <name x="190" y="-30">done</name>
+    </location>
+    <init ref="id22"/>
+    <transition>
+      <source ref="id22"/>
+      <target ref="id23"/>
+      <label kind="guard">x &gt;= 0</label>
+      <label kind="synchronisation">fire_e0a!</label>
+    </transition>
+  </template>
+  <template>
+    <name>SU</name>
+    <location id="id24" x="0" y="0">
+      <name x="-10" y="-30">wait</name>
+    </location>
+    <location id="id25" x="200" y="0">
+      <name x="190" y="-30">apply_Arrive_0</name>
+      <committed/>
+    </location>
+    <location id="id26" x="400" y="0">
+      <name x="390" y="-30">apply_Fork_0</name>
+      <committed/>
+    </location>
+    <location id="id27" x="600" y="0">
+      <name x="590" y="-30">apply_Fork_1</name>
+      <committed/>
+    </location>
+    <location id="id28" x="800" y="0">
+      <name x="790" y="-30">apply_Start1_0</name>
+      <committed/>
+    </location>
+    <location id="id29" x="1000" y="0">
+      <name x="990" y="-30">apply_Finish1_0</name>
+      <committed/>
+    </location>
+    <location id="id30" x="0" y="150">
+      <name x="-10" y="120">apply_Finish1_1</name>
+      <committed/>
+    </location>
+    <location id="id31" x="200" y="150">
+      <name x="190" y="120">apply_Start2_0</name>
+      <committed/>
+    </location>
+    <location id="id32" x="400" y="150">
+      <name x="390" y="120">apply_Finish2_0</name>
+      <committed/>
+    </location>
+    <location id="id33" x="600" y="150">
+      <name x="590" y="120">apply_Finish2_1</name>
+      <committed/>
+    </location>
+    <init ref="id24"/>
+    <transition>
+      <source ref="id24"/>
+      <target ref="id25"/>
+      <label kind="synchronisation">fire_e0c?</label>
+    </transition>
+    <transition>
+      <source ref="id24"/>
+      <target ref="id25"/>
+      <label kind="synchronisation">fire_e0b?</label>
+    </transition>
+    <transition>
+      <source ref="id24"/>
+      <target ref="id25"/>
+      <label kind="synchronisation">fire_e0a?</label>
+    </transition>
+    <transition>
+      <source ref="id25"/>
+      <target ref="id24"/>
+      <label kind="synchronisation">sched_e4!</label>
+    </transition>
+    <transition>
+      <source ref="id24"/>
+      <target ref="id26"/>
+      <label kind="synchronisation">fire_e4?</label>
+      <label kind="assignment">q1 = q1 + 1 &gt; 5 ? 5 : q1 + 1, q2 = q2 + 1 &gt; 5 ? 5 : q2 + 1</label>
+    </transition>
+    <transition>
+      <source ref="id26"/>
+      <target ref="id27"/>
+      <label kind="synchronisation">sched_e6!</label>
+    </transition>
+    <transition>
+      <source ref="id27"/>
+      <target ref="id24"/>
+      <label kind="synchronisation">sched_e5!</label>
+    </transition>
+    <transition>
+      <source ref="id24"/>
+      <target ref="id28"/>
+      <label kind="synchronisation">fire_e8?</label>
+      <label kind="assignment">q1 = q1 - 1, a1 = a1 - 1</label>
+    </transition>
+    <transition>
+      <source ref="id24"/>
+      <target ref="id28"/>
+      <label kind="synchronisation">fire_e5?</label>
+      <label kind="assignment">q1 = q1 - 1, a1 = a1 - 1</label>
+    </transition>
+    <transition>
+      <source ref="id28"/>
+      <target ref="id24"/>
+      <label kind="synchronisation">sched_e7!</label>
+    </transition>
+    <transition>
+      <source ref="id24"/>
+      <target ref="id29"/>
+      <label kind="synchronisation">fire_e7?</label>
+      <label kind="assignment">a1 = a1 + 1 &gt; 1 ? 1 : a1 + 1, p1 = p1 + 1 &gt; 5 ? 5 : p1 + 1</label>
+    </transition>
+    <transition>
+      <source ref="id29"/>
+      <target ref="id30"/>
+      <label kind="synchronisation">sched_e9!</label>
+    </transition>
+    <transition>
+      <source ref="id30"/>
+      <target ref="id24"/>
+      <label kind="synchronisation">sched_e8!</label>
+    </transition>
+    <transition>
+      <source ref="id24"/>
+      <target ref="id31"/>
+      <label kind="synchronisation">fire_e11?</label>
+      <label kind="assignment">q2 = q2 - 1, a2 = a2 - 1</label>
+    </transition>
+    <transition>
+      <source ref="id24"/>
+      <target ref="id31"/>
+      <label kind="synchronisation">fire_e6?</label>
+      <label kind="assignment">q2 = q2 - 1, a2 = a2 - 1</label>
+    </transition>
+    <transition>
+      <source ref="id31"/>
+      <target ref="id24"/>
+      <label kind="synchronisation">sched_e10!</label>
+    </transition>
+    <transition>
+      <source ref="id24"/>
+      <target ref="id32"/>
+      <label kind="synchronisation">fire_e10?</label>
+      <label kind="assignment">a2 = a2 + 1 &gt; 1 ? 1 : a2 + 1, p2 = p2 + 1 &gt; 5 ? 5 : p2 + 1</label>
+    </transition>
+    <transition>
+      <source ref="id32"/>
+      <target ref="id33"/>
+      <label kind="synchronisation">sched_e12!</label>
+    </transition>
+    <transition>
+      <source ref="id33"/>
+      <target ref="id24"/>
+      <label kind="synchronisation">sched_e11!</label>
+    </transition>
+    <transition>
+      <source ref="id24"/>
+      <target ref="id24"/>
+      <label kind="synchronisation">fire_e12?</label>
+      <label kind="assignment">p1 = p1 - 1, p2 = p2 - 1, dep = dep + 1 &gt; 3 ? 3 : dep + 1</label>
+      <nail x="-40" y="40"/>
+      <nail x="40" y="40"/>
+    </transition>
+    <transition>
+      <source ref="id24"/>
+      <target ref="id24"/>
+      <label kind="synchronisation">fire_e9?</label>
+      <label kind="assignment">p1 = p1 - 1, p2 = p2 - 1, dep = dep + 1 &gt; 3 ? 3 : dep + 1</label>
+      <nail x="-40" y="40"/>
+      <nail x="40" y="40"/>
+    </transition>
+  </template>
+  <system>system W_e12, W_e11, W_e10, W_e9, W_e8, W_e7, W_e6, W_e5, W_e4, W_e0c, W_e0b, W_e0a, SU;</system>
+</nta>

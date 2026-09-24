@@ -1,0 +1,215 @@
+{
+ "name": "feedback_2_batch_permuted",
+ "variables": {
+  "q1": {
+   "init": 0,
+   "bound": 5
+  },
+  "a1": {
+   "init": 1,
+   "bound": 1
+  },
+  "q2": {
+   "init": 0,
+   "bound": 5
+  },
+  "a2": {
+   "init": 1,
+   "bound": 1
+  },
+  "dep": {
+   "init": 0,
+   "bound": 3
+  }
+ },
+ "vertices": {
+  "Run": [],
+  "Arrive": [
+   "q1 += 1"
+  ],
+  "Start1": [
+   "q1 -= 1",
+   "a1 -= 1"
+  ],
+  "Finish1": [
+   "a1 += 1",
+   "q2 += 1"
+  ],
+  "Start2": [
+   "q2 -= 1",
+   "a2 -= 1"
+  ],
+  "Finish2": [
+   "a2 += 1"
+  ],
+  "Requeue": [
+   "q1 += 1"
+  ],
+  "Depart": [
+   "dep += 1"
+  ]
+ },
+ "edges": [
+  {
+   "id": "e14",
+   "from": "Depart",
+   "to": "Start2",
+   "delay": [
+    0,
+    0
+   ],
+   "guard": [
+    "q2 >= 1",
+    "a2 >= 1"
+   ]
+  },
+  {
+   "id": "e13",
+   "from": "Requeue",
+   "to": "Start2",
+   "delay": [
+    0,
+    0
+   ],
+   "guard": [
+    "q2 >= 1",
+    "a2 >= 1"
+   ]
+  },
+  {
+   "id": "e12",
+   "from": "Requeue",
+   "to": "Start1",
+   "delay": [
+    0,
+    0
+   ],
+   "guard": [
+    "q1 >= 1",
+    "a1 >= 1"
+   ]
+  },
+  {
+   "id": "e11",
+   "from": "Finish2",
+   "to": "Depart",
+   "delay": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "e10",
+   "from": "Finish2",
+   "to": "Requeue",
+   "delay": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "e8",
+   "from": "Start2",
+   "to": "Finish2",
+   "delay": [
+    3,
+    5
+   ]
+  },
+  {
+   "id": "e7",
+   "from": "Finish1",
+   "to": "Start2",
+   "delay": [
+    0,
+    0
+   ],
+   "guard": [
+    "a2 >= 1"
+   ]
+  },
+  {
+   "id": "e6",
+   "from": "Finish1",
+   "to": "Start1",
+   "delay": [
+    0,
+    0
+   ],
+   "guard": [
+    "q1 >= 1",
+    "a1 >= 1"
+   ]
+  },
+  {
+   "id": "e5",
+   "from": "Start1",
+   "to": "Finish1",
+   "delay": [
+    3,
+    5
+   ]
+  },
+  {
+   "id": "e4",
+   "from": "Arrive",
+   "to": "Start1",
+   "delay": [
+    0,
+    0
+   ],
+   "guard": [
+    "a1 >= 1"
+   ]
+  },
+  {
+   "id": "e0c",
+   "from": "Run",
+   "to": "Arrive",
+   "delay": [
+    8,
+    8
+   ]
+  },
+  {
+   "id": "e0b",
+   "from": "Run",
+   "to": "Arrive",
+   "delay": [
+    4,
+    4
+   ]
+  },
+  {
+   "id": "e0a",
+   "from": "Run",
+   "to": "Arrive",
+   "delay": [
+    0,
+    0
+   ]
+  }
+ ],
+ "branches": {
+  "Finish2": {
+   "edges": [
+    "e10",
+    "e11"
+   ],
+   "weights": [
+    0.3,
+    0.7
+   ]
+  }
+ },
+ "priority": [
+  "e14",
+  "e13",
+  "e12",
+  "e11",
+  "e10",
+  "e7",
+  "e6",
+  "e4"
+ ]
+}
