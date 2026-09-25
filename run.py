@@ -93,6 +93,10 @@ def run_one(xml: Path, qpath: Path, timeout: float, expected: str = "",
     if trace:
         cmd += ["-t", "0", "-y"]
     cmd += [str(xml), str(qpath)]
+    qid = qpath.stem
+    stale = TRACES / f"{qid}.trace.txt"
+    if stale.exists():
+        stale.unlink()  # a rerun never leaves the trace of an earlier run behind
     t0 = time.perf_counter()
     try:
         proc = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout)
@@ -103,7 +107,6 @@ def run_one(xml: Path, qpath: Path, timeout: float, expected: str = "",
         wall = time.perf_counter() - t0
         out = (ex.stdout or b"").decode(errors="replace") if isinstance(ex.stdout, bytes) else (ex.stdout or "")
         timed_out = True
-    qid = qpath.stem
     LOGS.mkdir(parents=True, exist_ok=True)
     (LOGS / f"{qid}.log").write_text(out, encoding="utf-8")
 
@@ -121,17 +124,13 @@ def run_one(xml: Path, qpath: Path, timeout: float, expected: str = "",
         # reported as its own verdict (the EG leaves its declared variable domain)
         row["verdict"] = "RANGE"
         row["query"] += f"  [{rng.group(2)} := {rng.group(1)}]"
-        if trace:
-            TRACES.mkdir(parents=True, exist_ok=True)
-            (TRACES / f"{qid}.trace.txt").write_text(out, encoding="utf-8")
-            row["witness_len"] = witness_length(out)
-        return row
-    if not m:
+    elif not m:
         row["verdict"] = "ERROR"
         err = RE_ERROR.search(out)
         row["query"] += "  [" + (err.group(0) if err else "no verdict in output") + "]"
         return row
-    row["verdict"] = "SAT" if m.group(1) == "satisfied" else "UNSAT"
+    else:
+        row["verdict"] = "SAT" if m.group(1) == "satisfied" else "UNSAT"
     for key, rx, scale in (("states_stored", RE_STORED, 1), ("states_explored", RE_EXPLORED, 1),
                            ("cpu_s", RE_CPU, 1 / 1000), ("virtual_mb", RE_VIRT, 1 / 1024),
                            ("resident_mb", RE_RES, 1 / 1024)):
