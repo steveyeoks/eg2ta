@@ -33,14 +33,39 @@ third-party packages, and nothing is imported from outside this folder.
     python3 tables.py               # tables/*.md and *.tex, the paper's tables
     python3 count_elements.py       # EG and NTA sizes for every model, CSV on stdout
 
-The first three and the last take no arguments and need no UPPAAL. `run.py` accepts
+`gen_models.py`, `queries.py` and `count_elements.py` take no arguments, `eg2xml.py`
+takes `--all` (or one source file), and none of the four needs UPPAAL. `run.py` accepts
 `--only PREFIX` (query ids to run), `--exclude SUBSTRING` (query ids to skip),
 `--timeout SECONDS` (per query, default 600), `--out FILE` (default
-`results/results.csv`), `--no-trace`, and `--xml MODEL --q QUERY` for one explicit pair.
-`tables.py` reads `results/results_extra.csv`, then `results/results_battery.csv`, then
-`results/results_frontier.csv` (a later file overrides an earlier one per query id),
-writes the merge to `results/results.csv`, and then writes the four paper tables;
-`tables.py --all` also writes the three full tables over every model.
+`results/results.csv`), `--no-trace`, and `--xml MODEL --q QUERY --out FILE` for one
+explicit pair (a smoke test: the three must be given together, and only that file is
+written, not `host.json`).
+`tables.py` reads, in increasing precedence, `results/results_extra.csv`,
+`results/results_battery.csv`, `results/results_frontier.csv` and, if it exists,
+`results/results.csv` (the output of a full `run.py`, which overrides all); a later file
+overrides an earlier one per query id, and the script prints which files it read and in
+what order. It writes the merge to `results/results_merged.csv` and then the four paper
+tables; `tables.py --all` also writes the three full tables over every model. The
+committed `results/` already holds the run of record, so `tables.py` works on a fresh
+clone without any run.
+
+### Quick start: the paper's tables in about 12 minutes
+
+    export VERIFYTA=/Applications/UPPAAL-5.0.0.app/Contents/Resources/uppaal/bin/verifyta
+    python3 run.py --only tandem --exclude frontier --out results/results_battery.csv   # 5 s
+    python3 run.py --only tandem_4 --out results/results_frontier.csv                   # 35 s
+    python3 run.py --only tandem_5 --out results/results_frontier_b.csv                 # 600 s, the timeout row
+    tail -n +2 results/results_frontier_b.csv >> results/results_frontier.csv
+    python3 tables.py
+
+The second command overwrites the committed `results_frontier.csv`, which held both
+frontier rows, with the `tandem_4` row alone; the third is the 600 s timeout row
+(`tandem_5`), written to its own file so that it does not overwrite `tandem_4`, and the
+`tail` appends it. `tables.py` reads only the files named above (any other
+`results_*.csv` is reported and ignored), and a later file overrides an earlier one per
+query id, so a leftover `results/results.csv` from a full run would take precedence over
+all of these. Skip the `tandem_5` step and the `tail` to finish in under a minute with
+the `n = 5` column blank.
 
 ## What each folder holds
 
@@ -63,7 +88,8 @@ writes the merge to `results/results.csv`, and then writes the four paper tables
 - `results/`: the recorded runs. `results_battery.csv` is the run of record for the
   tandem models (56 rows), `results_frontier.csv` the exhaustive runs at `n = 4` and
   `n = 5`, `results_extra.csv` the fork-join and feedback rows (52 rows),
-  `results.csv` the merge written by `tables.py`, `host.json` the verifyta version and
+  `results_merged.csv` the merge written by `tables.py` (`results.csv`, the output of a
+  full `run.py`, is not committed), `host.json` the verifyta version and
   machine of the last run, and `traces/` the verifyta output of every query that produced
   a trace. `logs/` (raw verifyta output per query) and the console `*.log` files are
   not tracked.

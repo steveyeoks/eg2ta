@@ -4,9 +4,10 @@
     python tables.py --all      # also the three full tables over every model (extra material)
 
 Reads, in this order, results/results_extra.csv (fork-join and feedback rows),
-results/results_battery.csv (the tandem battery, the run of record) and
-results/results_frontier.csv (tandem_4, tandem_5); a later file overrides an earlier
-one per query_id. The merge is written to results/results.csv. Then:
+results/results_battery.csv (the tandem battery, the run of record),
+results/results_frontier.csv (tandem_4, tandem_5) and, if it exists, results/results.csv
+(the output of a full run.py, which overrides all); a later file overrides an earlier
+one per query_id. The merge is written to results/results_merged.csv. Then:
 
   tables/table52_design.{md,tex}       the experimental design, expected verdicts from expected.json
   tables/table53_results.{md,tex}      verdict, fires, wall time, states explored, n = 1, 2, 3
@@ -31,8 +32,9 @@ TAB = HERE / "tables"
 EG_DIR = HERE / "models" / "eg"
 XML_DIR = HERE / "models" / "uppaal"
 
-# precedence: later files win per query_id
-RESULT_FILES = ("results_extra.csv", "results_battery.csv", "results_frontier.csv")
+# precedence: later files win per query_id; results.csv (a full run.py output) overrides all
+RESULT_FILES = ("results_extra.csv", "results_battery.csv", "results_frontier.csv", "results.csv")
+MERGED = "results_merged.csv"
 
 PROBLEM = {"acc": "ACCESSIBILITY", "ord": "ORDERING", "nic": "NONINTERCHANGEABILITY",
            "stall": "STALLING", "term": "STALLING"}
@@ -50,9 +52,11 @@ def load_rows() -> dict:
     if not files:
         raise SystemExit(f"tables.py: no results CSV in {RES} (expected one of {', '.join(RESULT_FILES)}); "
                          "run run.py first")
-    stray = sorted(p.name for p in RES.glob("results_*.csv") if p.name not in RESULT_FILES)
+    stray = sorted(p.name for p in RES.glob("results_*.csv") if p.name not in RESULT_FILES + (MERGED,))
     if stray:
         print(f"note: ignoring {', '.join(stray)} (not one of {', '.join(RESULT_FILES)})")
+    print("reading, in order (a later file overrides an earlier one per query_id): "
+          + ", ".join(f.name for f in files))
     rows = {}
     for f in files:
         with f.open(encoding="utf-8") as fh:
@@ -62,10 +66,12 @@ def load_rows() -> dict:
                 n += 1
         print(f"{f.name}: {n} rows")
     merged = sorted(rows.values(), key=lambda r: r["query_id"])
-    with (RES / "results.csv").open("w", newline="", encoding="utf-8") as fh:
+    if not merged:
+        raise SystemExit(f"tables.py: no rows in {', '.join(f.name for f in files)}; run run.py first")
+    with (RES / MERGED).open("w", newline="", encoding="utf-8") as fh:
         w = csv.DictWriter(fh, fieldnames=list(merged[0].keys()))
         w.writeheader(); w.writerows(merged)
-    print(f"results.csv: {len(merged)} rows merged")
+    print(f"{MERGED}: {len(merged)} rows merged")
     return rows
 
 
