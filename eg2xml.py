@@ -44,6 +44,9 @@ def validate(eg: dict) -> None:
     assert "Run" in V and not V["Run"], "Run vertex must exist with no updates (Def. 2.4)"
     ids = [e["id"] for e in eg["edges"]]
     assert len(ids) == len(set(ids)), "duplicate edge ids"
+    for v, spec in vars_.items():
+        assert spec.get("min", 0) <= spec["init"] <= spec["bound"], \
+            f"variable {v}: min <= init <= bound must hold (min defaults to 0)"
     for w, ups in V.items():
         for u in ups:
             m = RE_UPDATE.match(u)

@@ -37,8 +37,10 @@ class EG:
         self.branches = {}
         self._n = 0
 
-    def var(self, name, init, bound):
+    def var(self, name, init, bound, min=None):
         self.variables[name] = {"init": init, "bound": bound}
+        if min is not None:  # optional lower bound, default 0 (see eg2xml.py)
+            self.variables[name]["min"] = min
 
     def vertex(self, name, *updates):
         self.vertices[name] = list(updates)
@@ -111,17 +113,18 @@ def tandem(n, batch=0, cap=1, name=None):
     return m
 
 
-def tandem_shared(batch=2):
+def tandem_shared(batch=2, r_min=None):
     """tandem_2 with one server pool r, in-service counters s1, s2, and one dispatch
     vertex Check_i per station (plan §2.2). Guards are evaluated when an edge is
     scheduled (Def. 2.6 step 3), so a freed server must be offered to the two
     stations through separate Check vertices: the priority order among the Check
     and Start edges then decides which station gets it, or whether both do.
     Returns the model and the edge ids (check1, start1, check2, start2) of the
-    Finish_1 dispatch, from which the three priority orders are built."""
+    Finish_1 dispatch, from which the three priority orders are built.
+    r_min widens the domain of r below zero (the _wide variant)."""
     m = EG("tandem_2_batch_shared")
     m.var("q1", 0, K); m.var("q2", 0, K)
-    m.var("r", 1, 1)
+    m.var("r", 1, 1, min=r_min)
     m.var("s1", 0, 1); m.var("s2", 0, 1)
     m.var("dep", 0, batch)
     m.vertex("Arrive", "q1 += 1")
@@ -255,7 +258,7 @@ def main():
         write(m, prio, f"tandem_2_batch_shared_{tag}")
     # p3 again with r widened to [-1,1]: verifyta prints no trace on a range abort,
     # so the witnessing sequence comes from E<> r < 0 on this variant
-    m.variables["r"] = {"init": 1, "bound": 1, "min": -1}
+    m, orders = tandem_shared(r_min=-1)
     write(m, orders["p3"], "tandem_2_batch_shared_p3_wide")
 
 
