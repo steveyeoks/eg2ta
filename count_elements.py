@@ -4,7 +4,7 @@
     python count_elements.py path.xml ...    # XML-only counts
 
 EG: vertices (excluding Run), timed edges, zero-delay edges (seed edges included),
-state variables, product of (bound+1). NTA: automata, locations, branchpoints,
+state variables, product of (bound - min + 1), min defaulting to 0. NTA: automata, locations, branchpoints,
 transitions, clocks, channels, shared variables.
 """
 from __future__ import annotations
@@ -27,7 +27,7 @@ def count_eg(path: Path) -> dict:
     eg = json.loads(path.read_text(encoding="utf-8"))
     prod = 1
     for v in eg["variables"].values():
-        prod *= v["bound"] + 1
+        prod *= v["bound"] - v.get("min", 0) + 1
     return dict(
         vertices=len(eg["vertices"]) - 1,
         timed_edges=sum(1 for e in eg["edges"] if e["delay"] != [0, 0]),
