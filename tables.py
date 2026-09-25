@@ -91,14 +91,18 @@ def fmt_wall(seconds: float) -> str:
     return f"{seconds:.2f} s" if seconds < 10 else f"{seconds:.0f} s"
 
 
-_TEX_REPL = (("_", "\\_"), ("&&", "$\\wedge$"), ("<>", "$\\Diamond$"), (">=", "$\\ge$"), ("<=", "$\\le$"),
-             ("==", "$=$"), ("-->", "$\\leadsto$"), ("A[]", "$\\forall\\Box$"), ("E<>", "$\\exists\\Diamond$"))
+# longer patterns first, so that E<> is matched before <>
+_TEX_REPL = (("_", "\\_"), ("&&", "$\\wedge$"), ("E<>", "$\\exists\\Diamond$"), ("A[]", "$\\forall\\Box$"),
+             ("<>", "$\\Diamond$"), ("-->", "$\\leadsto$"), (">=", "$\\ge$"), ("<=", "$\\le$"), ("==", "$=$"))
 
 
 def tex_cell(text) -> str:
-    """The write_table escaping, applied outside $...$ math; math segments pass through verbatim."""
+    """The write_table escaping, applied outside $...$ math; math segments pass through verbatim.
+    Markdown code spans `...` become \\texttt{...}."""
     parts = str(text).replace("\\|", "|").split("$")
     for i in range(0, len(parts), 2):  # even indices are outside math
+        segs = parts[i].split("`")
+        parts[i] = "".join(f"\\texttt{{{seg}}}" if j % 2 else seg for j, seg in enumerate(segs))
         for a, b in _TEX_REPL:
             parts[i] = parts[i].replace(a, b)
     return "$".join(parts)
