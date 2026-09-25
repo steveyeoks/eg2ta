@@ -3,7 +3,7 @@
 Usage:
     python run.py                       # every queries/*.q against its model
     python run.py --only tandem_2       # queries whose name starts with tandem_2
-    python run.py --xml X --q Q         # one explicit pair (smoke test)
+    python run.py --xml X --q Q --out F # one explicit pair (smoke test; writes only F)
     python run.py --timeout 600         # per-query timeout in seconds
 
 Pairing rule: queries/<model>__<label>.q runs against models/uppaal/<model>.xml.
@@ -160,11 +160,15 @@ def main():
     ap.add_argument("--only", default="", help="prefix of query ids to run")
     ap.add_argument("--exclude", default="", help="substring of query ids to skip (e.g. frontier)")
     ap.add_argument("--timeout", type=float, default=600.0)
-    ap.add_argument("--xml")
-    ap.add_argument("--q")
-    ap.add_argument("--out", default=str(RESULTS / "results.csv"))
+    ap.add_argument("--xml", help="one explicit model (with --q and --out)")
+    ap.add_argument("--q", help="one explicit query (with --xml and --out)")
+    ap.add_argument("--out", help=f"results CSV (default {RESULTS / 'results.csv'}; required with --xml/--q)")
     ap.add_argument("--no-trace", action="store_true")
     a = ap.parse_args()
+    if bool(a.xml) != bool(a.q):
+        ap.error("--xml and --q must be given together")
+    if a.xml and not a.out:
+        ap.error("--out is required with --xml/--q")
     verifyta()  # fail early, before any file is touched
 
     expected = {}
@@ -183,7 +187,7 @@ def main():
                 continue
             model = q.stem.split("__")[0]
             pairs.append((MODELS / f"{model}.xml", q))
-    write_host()
+        write_host()
     rows = []
     for xml, q in pairs:
         row = run_one(xml, q, a.timeout, expected.get(q.stem, ""), trace=not a.no_trace)
@@ -191,7 +195,7 @@ def main():
         flag = "" if not row["expected"] or row["expected"] == row["verdict"] else "  <-- DIFF"
         print(f"{row['query_id']:40s} {row['verdict']:8s} {row['wall_s']:>8s} s  "
               f"{row['states_explored']:>8s} st  {row['resident_mb']:>8s} MB{flag}")
-    out = Path(a.out)
+    out = Path(a.out) if a.out else RESULTS / "results.csv"
     out.parent.mkdir(parents=True, exist_ok=True)
     with out.open("w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=COLUMNS)
