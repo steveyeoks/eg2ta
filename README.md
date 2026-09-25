@@ -84,9 +84,7 @@ writes the merge to `results/results.csv`, and then writes the four paper tables
 The results in `results/` were produced on a Mac with Apple silicon (`results/host.json`)
 running the x86-64 build of verifyta 5.0.0 under Rosetta, single runs with a budget of
 600 s per query: `run.py --only tandem --exclude frontier` for the battery and the two
-frontier queries `tandem_4__frontier` and `tandem_5__frontier` separately. An earlier
-run on an Intel machine gave the same verdicts, witness lengths and state counts; only
-the wall times and the memory differ.
+frontier queries `tandem_4__frontier` and `tandem_5__frontier` separately.
 
 The paper reports the tandem models: the nonterminating tandem `n` queue, its
 terminating variant, the faulty implementation of that variant, and the shared-server
