@@ -15,6 +15,8 @@ from __future__ import annotations
 import argparse
 import json
 import re
+from fractions import Fraction
+from math import lcm
 from pathlib import Path
 from xml.sax.saxutils import escape
 
@@ -63,6 +65,8 @@ def validate(eg: dict) -> None:
                 assert dec.get(m.group(1), 0) >= int(m.group(2)), \
                     f"C3: {e['to']} must decrement {m.group(1)} by >= {m.group(2)} (edge {e['id']})"
     for w, br in eg.get("branches", {}).items():
+        assert len(br["edges"]) == len(br["weights"]), f"branch set at {w}: one weight per edge"
+        assert all(wt > 0 for wt in br["weights"]), f"branch set at {w}: every weight must be > 0"
         for bid in br["edges"]:
             e = next(x for x in eg["edges"] if x["id"] == bid)
             assert e["from"] == w and e["delay"] == [0, 0] and not e.get("guard"), \
@@ -92,10 +96,14 @@ def translate(eg: dict, priority=None) -> dict:
     by_id = {e["id"]: e for e in edges}
     seed = [e for e in edges if e["from"] == "Run"]
     plain = [e for e in edges if e["from"] != "Run"]
-    branch_of = {}  # branch edge id -> (vertex, weight)
+    branch_of = {}  # branch edge id -> (vertex, integer weight)
     for w, br in eg.get("branches", {}).items():
-        for bid, wt in zip(br["edges"], br["weights"]):
-            branch_of[bid] = (w, wt)
+        # exact integer weights: each weight as a fraction, scaled by the lcm of the
+        # denominators ([0.3, 0.7] -> 3, 7; [0.25, 0.75] -> 1, 3)
+        fr = [Fraction(str(wt)) for wt in br["weights"]]
+        scale = lcm(*(f.denominator for f in fr))
+        for bid, f in zip(br["edges"], fr):
+            branch_of[bid] = (w, int(f * scale))
     prio = priority or eg["priority"]
 
     # global declarations
@@ -170,7 +178,7 @@ def translate(eg: dict, priority=None) -> dict:
             trs.append(dict(src=names[-1], dst=bp))
             for e in branch:
                 wt = branch_of[e["id"]][1]
-                trs.append(dict(src=bp, dst="wait", sync=f"sched_{e['id']}!", prob=str(int(round(wt * 10)))))
+                trs.append(dict(src=bp, dst="wait", sync=f"sched_{e['id']}!", prob=str(wt)))
     templates.append(dict(name="SU", clock=False, locs=locs, trs=trs, bps=bps))
 
     return dict(name=eg["name"], decl="\n".join(decl), templates=templates,
@@ -242,6 +250,8 @@ def main():
         for src in sorted(EG_DIR.glob("*.json")):
             print(convert(src, XML_DIR / (src.stem + ".xml")).name)
         return
+    if not a.src:
+        ap.error("src or --all required")
     src = Path(a.src)
     dst = Path(a.out) if a.out else XML_DIR / (src.stem + ".xml")
     print(convert(src, dst, prio))
