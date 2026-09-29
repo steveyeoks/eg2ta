@@ -1,7 +1,7 @@
-"""tables.py: results/*.csv + model counts -> tables/*.md and *.tex (paper Tables 5.2-5.4 and A.1).
+"""tables.py: results/*.csv + model counts -> tables/*.md and *.tex (the paper's Table 1 and the numbers of Section 5.5).
 
-    python tables.py            # the four paper tables (tandem models only)
-    python tables.py --all      # also the three full tables over every model (extra material)
+    python tables.py            # Table 1 and the Section 5.5 numbers (tandem models only)
+    python tables.py --all      # also the size table and the three full tables over every model (extra material)
 
 Reads, in this order, results/results_extra.csv (fork-join and feedback rows),
 results/results_battery.csv (the tandem battery, the run of record),
@@ -9,13 +9,12 @@ results/results_frontier.csv (tandem_4, tandem_5) and, if it exists, results/res
 (the output of a full run.py, which overrides all); a later file overrides an earlier
 one per query_id. The merge is written to results/results_merged.csv. Then:
 
-  tables/table52_design.{md,tex}       the experimental design, expected verdicts from expected.json
-  tables/table53_results.{md,tex}      verdict, fires, wall time, states explored, n = 1, 2, 3
-  tables/table54_exploration.{md,tex}  A[] true on tandem_n, n = 1..5: states stored, time, memory
-  tables/tableA1_models.{md,tex}       EG size, NTA size, zone graph for the models of Figure 5.1
+  tables/table1_design.{md,tex}        Table 1, the experimental design, expected verdicts from expected.json
+  tables/results_by_problem.{md,tex}   the Section 5.5 results: verdict, fires, wall time, states explored, n = 1, 2, 3
+  tables/exploration.{md,tex}          the Section 5.5 exploration: A[] true on tandem_n, n = 1..5, states stored, time, memory
 
-With --all, also the previous full tables (every model, every query):
-  tables/table51_models.{md,tex}, table52_results.{md,tex}, table53_frontier.{md,tex}
+With --all, also the size table of the benchmark models (tableA1_models, extra material) and the
+three full tables over every model and every query (table51_models, table52_results, table53_frontier).
 """
 from __future__ import annotations
 
@@ -138,7 +137,7 @@ def expected_of(expected, qids):
     return ", ".join(f"{q}: {v}" for q, v in zip(qids, vs))
 
 
-def table52_design(expected):
+def table1_design(expected):
     ns = (1, 2, 3)
     acc = expected_of(expected, [f"tandem_{n}__acc" for n in ns])
     ord_p1 = ", ".join(expected.get(f"tandem_2_batch_shared_p1__ord_{p}", "?") for p in ("P1", "P2"))
@@ -162,9 +161,9 @@ def table52_design(expected):
          "`E<> (SU.wait && idle && dep < 3)`",
          f"(b): {st_b}. (c): {st_c}. $n = 1, 2, 3$"],
     ]
-    write_table("table52_design", header, body,
-                "Table 5.2. The experimental design, one row per problem; the models are the panels of "
-                "Figure 5.1 and the expected verdicts are those of expected.json.")
+    write_table("table1_design", header, body,
+                "Table 1. The experimental design, one row per problem; the models are the panels of "
+                "the benchmark figure and the expected verdicts are those of expected.json.")
 
 
 def result_cell(r) -> str:
@@ -183,7 +182,7 @@ def result_cell(r) -> str:
     return ", ".join(parts)
 
 
-def table53_results(rows):
+def results_by_problem(rows):
     ns = (1, 2, 3)
     spec = [  # (row label, query id pattern with {n}, sizes at which it is asked)
         ("ACCESSIBILITY (a)", "tandem_{n}__acc", ns),
@@ -200,13 +199,13 @@ def table53_results(rows):
     body = []
     for label, pat, asked in spec:
         body.append([label] + [result_cell(rows.get(pat.format(n=n))) if n in asked else "" for n in ns])
-    write_table("table53_results", header, body,
-                "Table 5.3. Results for the rows of Table 5.2, one row per model and one run per cell: "
+    write_table("results_by_problem", header, body,
+                "Section 5.5 results, one row per model and one run per cell: "
                 "verdict, witness length in fire actions where a trace exists, wall time, states explored. "
                 "ORDERING is asked at n = 2.")
 
 
-def table54_exploration(rows):
+def exploration(rows):
     ns = (1, 2, 3, 4, 5)
     states, wall, mem = ["states stored"], ["wall time"], ["resident memory"]
     for n in ns:
@@ -219,8 +218,8 @@ def table54_exploration(rows):
             states.append(r["states_stored"])
             wall.append(fmt_wall(float(r["wall_s"])) if r["wall_s"] else "")
             mem.append(f"{fmt_mem(r)} MB" if r["resident_mb"] else "")
-    write_table("table54_exploration", ["$n$"] + [str(n) for n in ns], [states, wall, mem],
-                "Table 5.4. Exhaustive exploration of model (a) by size, A[] true on the tandem n queue; "
+    write_table("exploration", ["$n$"] + [str(n) for n in ns], [states, wall, mem],
+                "Section 5.5 exploration of model (a) by size, A[] true on the tandem n queue; "
                 "the timeout run was stopped at the stated budget.")
 
 
@@ -237,7 +236,7 @@ def tableA1_models(rows):
                      nta["automata"], nta["locations"], nta["transitions"], nta["clocks"], nta["channels"],
                      z["states_stored"] if z else "", fmt_time(z) if z else "", fmt_mem(z) if z else ""])
     write_table("tableA1_models", header, body,
-                "Table A.1. The models of Figure 5.1: EG size (vertices without Run; timed and zero-delay edges "
+                "Benchmark sizes (extra material). The models of the benchmark figure: EG size (vertices without Run; timed and zero-delay edges "
                 "including the seed edges; state variables; product of their ranges), NTA size, and the "
                 "exploration of the whole reachable state space (A[] true: states stored, wall time, resident "
                 "memory). Row (d) is the shared-server tandem-2 under the first order.")
@@ -294,16 +293,15 @@ def table53_all(rows):
 def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--all", action="store_true",
-                    help="also write the full tables over every model (table51_models, table52_results, "
-                         "table53_frontier)")
+                    help="also write the size table and the full tables over every model (tableA1_models, "
+                         "table51_models, table52_results, table53_frontier)")
     a = ap.parse_args()
     rows = load_rows()
-    table52_design(load_expected())
-    table53_results(rows)
-    table54_exploration(rows)
-    tableA1_models(rows)
+    table1_design(load_expected())
+    results_by_problem(rows)
+    exploration(rows)
     if a.all:
-        table51_all(rows); table52_all(rows); table53_all(rows)
+        tableA1_models(rows); table51_all(rows); table52_all(rows); table53_all(rows)
 
 
 if __name__ == "__main__":

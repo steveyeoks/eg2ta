@@ -1,4 +1,4 @@
-**Table 5.3. Results for the rows of Table 5.2, one row per model and one run per cell: verdict, witness length in fire actions where a trace exists, wall time, states explored. ORDERING is asked at n = 2.**
+**Section 5.5 results, one row per model and one run per cell: verdict, witness length in fire actions where a trace exists, wall time, states explored. ORDERING is asked at n = 2.**
 
 | problem, model | $n = 1$ | $n = 2$ | $n = 3$ |
 |---|---|---|---|

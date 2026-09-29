@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the paper below."
+title: "eg2ta: model checking bounded Event Graphs through timed automata"
+authors:
+  - family-names: Yeo
+    given-names: Keng Swee Steve
+license: MIT
+repository-code: "https://github.com/steveyeoks/eg2ta"
+preferred-citation:
+  type: conference-paper
+  title: "On Model Checking of Bounded Event Graph Discrete-Event Simulation Models via Timed Automata"
+  authors:
+    - family-names: Yeo
+      given-names: Keng Swee Steve
+  collection-title: "Proceedings of the ACM SIGSIM Conference on Principles of Advanced Discrete Simulation (SIGSIM-PADS '27)"
+  year: 2027
+  notes: "Submitted."

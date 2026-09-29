@@ -1,4 +1,4 @@
-**Table 5.4. Exhaustive exploration of model (a) by size, A[] true on the tandem n queue; the timeout run was stopped at the stated budget.**
+**Section 5.5 exploration of model (a) by size, A[] true on the tandem n queue; the timeout run was stopped at the stated budget.**
 
 | $n$ | 1 | 2 | 3 | 4 | 5 |
 |---|---|---|---|---|---|

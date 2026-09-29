@@ -1,4 +1,4 @@
-**Table 5.2. The experimental design, one row per problem; the models are the panels of Figure 5.1 and the expected verdicts are those of expected.json.**
+**Table 1. The experimental design, one row per problem; the models are the panels of the benchmark figure and the expected verdicts are those of expected.json.**
 
 | problem | EG-TCTL | UPPAAL | model: expected |
 |---|---|---|---|
