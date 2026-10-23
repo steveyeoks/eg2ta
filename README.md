@@ -17,29 +17,42 @@ in about two seconds. **With UPPAAL:** `python3 reproduce.py --rerun` reruns eve
 ## Requirements
 
 - **Python 3.9 or later**, standard library only. Tested with 3.9.6.
-- **UPPAAL 5.0.0**, only for rerunning the queries; the recorded runs need no UPPAAL. Download
-  it from https://uppaal.org/downloads/ (free academic license, activated once per machine as
-  the download page describes; the license does not allow the binary to be redistributed, so
-  it is not part of this repository). Set `VERIFYTA` to the path of the command-line checker:
-
-      # macOS
-      export VERIFYTA=/Applications/UPPAAL-5.0.0.app/Contents/Resources/uppaal/bin/verifyta
-      # Linux (unpacked zip)
-      export VERIFYTA=$HOME/uppaal-5.0.0-linux64/bin/verifyta
-      # Windows (PowerShell)
-      $env:VERIFYTA = "C:\uppaal-5.0.0-win64\bin\verifyta.exe"
-
+- **UPPAAL 5.0.0**, only for rerunning the queries. The recorded runs need no UPPAAL.
 - **Hardware:** a laptop with 1 GB of free memory is recommended. The largest run
   (`tandem_4`, exhaustive exploration) peaks at 234 MB of resident memory, and the repository
-  is under 5 MB. The run of record used an Apple M2.
+  is under 5 MB. The recorded runs were made on an Apple M2 laptop.
 
-## Installation check
+## Installation
 
-    export VERIFYTA=...          # as above
-    python3 reproduce.py --smoke
+1. Clone the repository and enter it.
 
-runs one query (ACCESSIBILITY on the tandem-1 queue) and prints `PASS: ... SAT, 13 fires`.
-About one second, a few seconds on the first launch of verifyta.
+       git clone https://github.com/steveyeoks/eg2ta.git
+       cd eg2ta
+
+2. Check that Python 3.9 or later is on the path. Nothing else needs to be installed.
+
+       python3 --version
+
+3. Check the recorded runs. This needs no UPPAAL and takes about two seconds.
+
+       python3 reproduce.py
+
+4. To rerun the queries, install UPPAAL 5.0.0 from https://uppaal.org/downloads/. The
+   academic license is free and is activated once per machine as the download page
+   describes. The license does not allow the binary to be redistributed, so it is not part of
+   this repository. Then point `VERIFYTA` at the command-line checker.
+
+       # macOS
+       export VERIFYTA=/Applications/UPPAAL-5.0.0.app/Contents/Resources/uppaal/bin/verifyta
+       # Linux (unpacked zip)
+       export VERIFYTA=$HOME/uppaal-5.0.0-linux64/bin/verifyta
+       # Windows (PowerShell)
+       $env:VERIFYTA = "C:\uppaal-5.0.0-win64\bin\verifyta.exe"
+
+5. Check the UPPAAL setup with one query, ACCESSIBILITY on the tandem-1 queue. It prints
+   `PASS: ... SAT, 13 fires` in about a second, a few seconds on the first launch of verifyta.
+
+       python3 reproduce.py --smoke
 
 ## Reproducing the paper
 
@@ -59,7 +72,7 @@ What the checks cover, and what they treat as reproducible:
 | Section 5.5, exhaustive exploration | verdict, states stored, wall time, resident memory at n = 1..5 | `tables.py` (`tables/exploration`) | yes | verdict; the rest reported |
 
 A rerun writes `results/results.csv`, which takes precedence over the recorded runs; delete it
-to return to the run of record.
+to return to the recorded runs.
 
 ## Regenerating everything from the Event Graphs
 
@@ -89,11 +102,11 @@ to return to the run of record.
     │   └── uppaal/             their UPPAAL translations, one XML file per EG
     ├── queries/                110 query files, <model>__<label>.q
     ├── results/
-    │   ├── results_battery.csv     run of record, tandem models
+    │   ├── results_battery.csv     recorded runs, tandem models
     │   ├── results_frontier.csv    exhaustive exploration at n = 4 and 5
     │   ├── results_extra.csv       fork-join and feedback networks
     │   ├── results_merged.csv      the merge written by tables.py
-    │   ├── host.json               verifyta version and machine of the run of record
+    │   ├── host.json               verifyta version and machine of the recorded runs
     │   ├── traces/                 verifyta traces of every query that produced one
     │   └── logs/                   raw verifyta output, not tracked
     ├── tables/                 the paper's tables as Markdown and LaTeX
@@ -105,20 +118,6 @@ Model names are `<topology>_<n>[_variant]`, the tandem, fork-join and feedback n
 for the shared-server tandem under the two tie-breaking orders. Query labels are `acc` (ACCESSIBILITY),
 `ord_P1` and `ord_P2` (ORDERING), `nic` (NONINTERCHANGEABILITY), `stall` (STALLING), and
 `zone` and `frontier` (`A[] true`, exhaustive exploration).
-
-## The run of record
-
-The results in `results/` were produced on an Apple M2 laptop (`results/host.json`: macOS,
-arm64, Python 3.9.6) running the x86-64 build of verifyta 5.0.0 under Rosetta, single runs with
-a budget of 600 s per query: `run.py --only tandem --exclude frontier` for the battery and the
-two frontier queries `tandem_4__frontier` and `tandem_5__frontier` separately. The same battery
-run earlier on a Windows laptop gave the same verdicts, witness lengths and state counts.
-
-The paper reports the tandem models: the nonterminating tandem `n` queue, its terminating
-variant, the faulty implementation of that variant, and the shared-server tandem, at
-`n = 1, 2, 3` for the four problems and `n = 1..5` for exhaustive exploration. The fork-join
-and feedback networks are extra material with the same battery of queries; their rows live in
-`results/results_extra.csv` and appear only in the `--all` tables.
 
 ## Verdicts
 
